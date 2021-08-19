@@ -1,7 +1,8 @@
 #include <iostream>
 #include<locale>
-using namespace std;
+#include "Calculadora.h"
 
+using namespace std;
 
 //Menu das opções
 void menu(){
@@ -23,7 +24,12 @@ float ler_numero(int i)
 	return tmp;
 }
 
+void mostra_resultado(float res){
+	cout << "Resultado:" << res << endl;
+}
+
 int main(int argc, char** argv) {
+	setlocale(LC_ALL, "Portuguese");
 	
 	int op(1);
 	float n1, n2;

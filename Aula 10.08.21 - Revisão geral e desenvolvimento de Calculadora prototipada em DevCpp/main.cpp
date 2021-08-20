@@ -4,15 +4,15 @@
 
 using namespace std;
 
-//Menu das opções
+//Menu das opï¿½ï¿½es
 void menu(){
-	cout << "Escolha opção:\n";
+	cout << "Escolha opï¿½ï¿½o:\n";
 	cout << "1 - Soma" << endl;
-	cout << "2 - Subtração" << endl;
-	cout << "3 - Multiplicação" << endl;
-	cout << "4 - Divisão" << endl;
+	cout << "2 - Subtraï¿½ï¿½o" << endl;
+	cout << "3 - Multiplicaï¿½ï¿½o" << endl;
+	cout << "4 - Divisï¿½o" << endl;
 	cout << "Qualquer outra para sair.\n";
-	cout << "Opção: ";
+	cout << "Opï¿½ï¿½o: ";
 }
 //Fim menu
 
@@ -37,30 +37,42 @@ int main(int argc, char** argv) {
 	{
 		menu();
 		cin>>op;
+		float tmp;
 		
 		switch(op){
 			
-			//Adição
+			//Adicao
 			case 1:
 				n1 = ler_numero(1);
 				n2 = ler_numero(2);
+				tmp = soma(n1, n2);
+				mostra_resultado(tmp)
 				break;
 			
-			//Subtração
+			//Subtracao
 			case 2:
 				n1 = ler_numero(1);
 				n2 = ler_numero(2);
-			//Multiplicação
+				tmp = soma(n1, n2);
+				mostra_resultado(tmp)
+				break;
+
+			//Multiplicacao
 			case 3:
 				n1 = ler_numero(1);
 				n2 = ler_numero(2);
-			
-			//Divisão
+				tmp = soma(n1, n2);
+				mostra_resultado(tmp)
+				break;			
+			//Divisao
 			case 4:
 				n1 = ler_numero(1);
 				n2 = ler_numero(2);
+				tmp = soma(n1, n2);
+				mostra_resultado(tmp)
+				break;
 				
-			default: cout <<"Opção inválida e fim de programa\n";
+			default: cout <<"Opï¿½ï¿½o invï¿½lida e fim de programa\n";
 		}
 	}while(op >=1 && op<=4);
 	

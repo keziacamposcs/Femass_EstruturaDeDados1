@@ -1,83 +1,44 @@
-#include <iostream>
-#include<locale>
-#include "Calculadora.h"
 
-using namespace std;
-
-//Menu das opï¿½ï¿½es
-void menu(){
-	cout << "Escolha opï¿½ï¿½o:\n";
-	cout << "1 - Soma" << endl;
-	cout << "2 - Subtraï¿½ï¿½o" << endl;
-	cout << "3 - Multiplicaï¿½ï¿½o" << endl;
-	cout << "4 - Divisï¿½o" << endl;
-	cout << "Qualquer outra para sair.\n";
-	cout << "Opï¿½ï¿½o: ";
-}
-//Fim menu
-
-float ler_numero(int i)
+#include <stdio.h>
+#include <stdlib.h>
+ 
+float media (int n, float vnotas[]) //passagem do vetor por valor (cópia)!
 {
-	cout << "Informe N" << i <<":";
-	float tmp;
-	cin >> tmp;
-	return tmp;
+  int i;
+  float m = 0, soma = 0;
+   
+  //fazendo a somatória das notas
+  for (i = 0; i < n; i++)
+    soma = soma + vnotas[i];    
+   
+  //dividindo pela quantidade de elementos n
+  m = soma / n;
+   
+  //retornando a média
+  return m;
 }
+ 
+int main (){
 
-void mostra_resultado(float res){
-	cout << "Resultado:" << res << endl;
+  float vnotas[10];
+  float media_notas;
+  int i;
+ 
+  /* leitura das notas */
+  for (i = 0; i < 10; i++)
+  {
+    printf("Digite os valores das notas: ");
+    scanf("%f", &vnotas[i]);
+  }
+   
+  //chamada da função
+  media_notas = media(10,vnotas);  
+   
+  printf ( "\nMedia = %.1f \n", media_notas );
+   
+  system("pause");
+  return 0;
 }
+ 
 
-int main(int argc, char** argv) {
-	setlocale(LC_ALL, "Portuguese");
-	
-	int op(1);
-	float n1, n2;
-	do
-	{
-		menu();
-		cin>>op;
-		float tmp;
-		
-		switch(op){
-			
-			//Adicao
-			case 1:
-				n1 = ler_numero(1);
-				n2 = ler_numero(2);
-				tmp = soma(n1, n2);
-				mostra_resultado(tmp)
-				break;
-			
-			//Subtracao
-			case 2:
-				n1 = ler_numero(1);
-				n2 = ler_numero(2);
-				tmp = soma(n1, n2);
-				mostra_resultado(tmp)
-				break;
 
-			//Multiplicacao
-			case 3:
-				n1 = ler_numero(1);
-				n2 = ler_numero(2);
-				tmp = soma(n1, n2);
-				mostra_resultado(tmp)
-				break;			
-			//Divisao
-			case 4:
-				n1 = ler_numero(1);
-				n2 = ler_numero(2);
-				tmp = soma(n1, n2);
-				mostra_resultado(tmp)
-				break;
-				
-			default: cout <<"Opï¿½ï¿½o invï¿½lida e fim de programa\n";
-		}
-	}while(op >=1 && op<=4);
-	
-	cout << "Fim de programa\n";
-	system("pause");
-		
-	return 0;
-}

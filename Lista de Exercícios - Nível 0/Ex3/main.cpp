@@ -1,6 +1,7 @@
 /*
 Desenvolva um programa que implemente um vetor dinâmico para armazenamento
 de números inteiros, com as seguintes funções básicas:
+
 1- Cadastrar número;
 2- Exibir número(s) cadastrados;
 3- Exibir quantidade de números cadastrados;
@@ -13,81 +14,60 @@ de números inteiros, com as seguintes funções básicas:
 
 
 //Opcao 1
-int cadastrarnumero(int *vvetor)
+int cadastrarnumero(int *v, int n)
 {
-		for (int i = 0; i <10; i++)
-	{
-		cout << "Cadastrar numeros: ";
-  		cin >> vvetor[i];
+	int *v; //definindo o ponteiro v
+  	int i, num_componentes;
+  
+  	printf("Informe o numero de componentes do vetor: \n");
+  	scanf("%d", &n);
 		
-		/*
-		printf("Cadastrar numeros: ");
-	    scanf("%d", &vvetor[i]);
-	    */
-	}
+	v = (int *) malloc(n * sizeof(int));
+	
+	for (i = 0; i < n; i++)
+	for (i = 0; i < n; i++)
+  	{
+    	printf("\nDigite o valor para a posicao %d do vetor: ", i+1);
+    	scanf("%i",&v[i]);
+  	}
+
+		
 }
 
 
 //Opcao 2
-int exibir(int *vvetor)
+int exibir(int *v)
 {
-	int i;
 	printf("\nExibir numeros:\n");
-	for (i=0; i<10; i++)
-	{
-		printf("\n%d\n", vvetor[i]);
-	}
+	
 }
 
 
 //Opcao 3
-int exibirquant(int *vvetor, int num)
-{
-	int i;
-	
+int exibirquant(int *v)
+{	
 	printf("\nQuantidade de numeros cadastrados:\n");
 	
-	for (i=0; i<num; i++)
-	{
-		printf("\n%d\n", sizeof(vvetor[i]));
-	}
+
 	
 	
-	 if(num_componentes == 1)
-		cout << "Foi cadastrado 1 componente." << endl;
 }
 
 
 //Opcao 4
 int removerult(int *vvetor)
 {
-	int i;
 	
-	printf("\nRemovendo o ultimo numero cadastrado:\n");
 	
-	for (i=0; i<10; i++)
-	{
-		if(vvetor[i]%2==0)
-		{
-			printf("\n%d\n", vvetor[i]);
-		}
-		
-	}
 }
 
 /*-------------------------------------------------------------------*/
 
 int main()
 {
-	int op;
-	int *vetor;
-	int i;
-	int n;
+	int op; //opcoes do menu
+	int *vetor = NULL; //define o ponteiro de vetor
 	
-	printf("\nDetermine o tamanho de n: ");
-	scanf("%d", &n);
-	
-	vetor = (int*) malloc (n*sizeof(int));
 	
 	do
 	{
@@ -112,7 +92,7 @@ int main()
 				break;
 				
 			case 3:
-				exibirquant(vetor, n);
+				exibirquant(vetor);
 				break;
 			
 			case 4:

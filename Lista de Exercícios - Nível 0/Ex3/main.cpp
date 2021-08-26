@@ -11,13 +11,19 @@ de números inteiros, com as seguintes funções básicas:
 #include <stdio.h>
 #include<stdlib.h>
 
+
 //Opcao 1
 int cadastrarnumero(int *vvetor)
 {
 		for (int i = 0; i <10; i++)
 	{
+		cout << "Cadastrar numeros: ";
+  		cin >> vvetor[i];
+		
+		/*
 		printf("Cadastrar numeros: ");
 	    scanf("%d", &vvetor[i]);
+	    */
 	}
 }
 
@@ -45,6 +51,10 @@ int exibirquant(int *vvetor, int num)
 	{
 		printf("\n%d\n", sizeof(vvetor[i]));
 	}
+	
+	
+	 if(num_componentes == 1)
+		cout << "Foi cadastrado 1 componente." << endl;
 }
 
 

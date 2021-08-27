@@ -22,6 +22,8 @@ typedef struct
 
 
 /* ----- Opcao 1 -----*/
+// usuario = cadastrarusuario(usuario, &n_comp);
+
 int* cadastrarusuario(int *user, int *n)
 {
 	printf("Informe o numero de componentes do vetor: \n");
@@ -79,11 +81,10 @@ int removerult(int *user, int *n)
 
 
 /*-------------------------------------------------------------------*/
-
 int main()
 {
 	int op; //opcoes do menu
-	int *usuario = NULL; //define o ponteiro de vetor
+	Usuario *usuario = NULL; //define o ponteiro de vetor
 	int n_comp = 0; //n de componentes do vetor
   
 	
@@ -102,7 +103,7 @@ int main()
 		switch(op)
 		{
 			case 1:
-				Usuario* cadastrarusuario(Usuario *usuario, *n_comp);
+				usuario = cadastrarusuario(usuario, &n_comp);
 				break;
 				
 			case 2:
@@ -114,7 +115,7 @@ int main()
 				break;
 			
 			case 4:
-				removerult(usuario, &n_comp);
+				usuario = removerult(usuario, &n_comp);
 				break;
 				
 			case 5:

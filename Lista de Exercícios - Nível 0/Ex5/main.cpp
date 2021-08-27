@@ -1,20 +1,28 @@
 /*
-Desenvolva um programa que implemente um vetor dinâmico para armazenamento
-de números inteiros, com as seguintes funções básicas:
 
-1- Cadastrar número;
-2- Exibir número(s) cadastrados;
-3- Exibir quantidade de números cadastrados;
-4- Remover último número cadastrado;
-5- Sair.
+5- Evolua a questão (3) para cadastrar usuários que possuem as informações: 
+Nome, RG, CPF, Endereço.
+
 */
 
 #include <stdio.h>
 #include<stdlib.h>
 
 
-//Opcao 1
-int* cadastrarnumero(int *user, int *n)
+/*----- Struct -----*/
+typedef struct
+{
+	char nome[50];
+	char rg[15];
+	char cpf[12];
+	char endereco[50];	
+} Usuario;
+/*----- Fim -----*/
+
+
+
+/* ----- Opcao 1 -----*/
+int* cadastrarusuario(int *user, int *n)
 {
 	printf("Informe o numero de componentes do vetor: \n");
 	scanf("%d", &n);
@@ -31,9 +39,11 @@ int* cadastrarnumero(int *user, int *n)
 	return user;
 		
 }
+/* ----- Fim 1 -----*/
 
 
-//Opcao 2 ----Erro
+
+/* ----- Opcao 2 -----*/
 void exibir(int *user, int n)
 {
 	printf("\nExibir numeros:\n");
@@ -44,22 +54,29 @@ void exibir(int *user, int n)
 	}
 	
 }
+/* ----- Fim 2 -----*/
 
 
-//Opcao 3
+
+/* ----- Opcao 3 -----*/
 void exibirquant(int n)
 {	
 	printf("\nQuantidade de numeros cadastrados: %d\n", n);
 }
+/* ----- Fim 3 -----*/
 
 
-//Opcao 4
+
+/* ----- Opcao 4 -----*/
 int removerult(int *user, int *n)
 {
 	free(user);
 	user = NULL;
 	*n = *n - 1; //Atualiza o numero de componente do vetor
 }
+/* ----- Fim 4 -----*/
+
+
 
 /*-------------------------------------------------------------------*/
 
@@ -85,7 +102,7 @@ int main()
 		switch(op)
 		{
 			case 1:
-				cadastrarnumero(usuario, n_comp);
+				Usuario* cadastrarusuario(Usuario *usuario, *n_comp);
 				break;
 				
 			case 2:

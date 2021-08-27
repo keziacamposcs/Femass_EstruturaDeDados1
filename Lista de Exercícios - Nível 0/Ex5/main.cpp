@@ -30,12 +30,16 @@ int* cadastrarusuario(int *user, int *n)
 	scanf("%d", &n);
 	
   	user = (int *) malloc(n * sizeof(int));
+  	v = (Pessoa*) malloc(sizeof(Pessoa));
+
 	
 	//Armazenando os dados em um vetor
 	for (int i = 0; i < n; i++)
   	{
 	  	printf("Digite o valor para a posicao %d do vetor: \n", i+1);
 	  	scanf("%d", &user[i]);
+	  	
+	  	v = (Pessoa*) malloc(sizeof(Pessoa));
   	}
 	
 	return user;

@@ -1,7 +1,7 @@
 /*
 
-5- Evolua a questão (3) para cadastrar usuários que possuem as informações: 
-Nome, RG, CPF, Endereço.
+5- Evolua a questao (3) para cadastrar usuarios que possuem as informacaes: 
+Nome, RG, CPF, Endereco.
 
 */
 
@@ -24,12 +24,12 @@ typedef struct
 /* ----- Opcao 1 -----*/
 // usuario = cadastrarusuario(usuario, &n_comp);
 
-int* cadastrarusuario(int *user, int *n)
+int* cadastrarusuario(int *u, int *n)
 {
 	printf("Informe o numero de componentes do vetor: \n");
 	scanf("%d", &n);
 	
-  	user = (int *) malloc(n * sizeof(int));
+  	u = (int *) malloc(n * sizeof(int));
   	v = (Pessoa*) malloc(sizeof(Pessoa));
 
 	

@@ -1,11 +1,11 @@
 /*
-Desenvolva um programa que implemente um vetor dinâmico para armazenamento
-de números inteiros, com as seguintes funções básicas:
+Desenvolva um programa que implemente um vetor dinamico para armazenamento
+de numeros inteiros, com as seguintes funcoes basicas:
 
-1- Cadastrar número;
-2- Exibir número(s) cadastrados;
-3- Exibir quantidade de números cadastrados;
-4- Remover último número cadastrado;
+1- Cadastrar numero;
+2- Exibir numero(s) cadastrados;
+3- Exibir quantidade de numeros cadastrados;
+4- Remover ultimo numero cadastrado;
 5- Sair.
 */
 
@@ -13,70 +13,71 @@ de números inteiros, com as seguintes funções básicas:
 #include<stdlib.h>
 
 
-//Opcao 1
-int* cadastrarnumero(int *user, int *n)
+//Opcao 1 - Cadastrar numero
+int cadastrarnumero(int *v, int *n)
 {
-	printf("Informe o numero de componentes do vetor: \n");
-	scanf("%d", &n);
-	
-  	user = (int *) malloc(n * sizeof(int));
-	
-	//Armazenando os dados em um vetor
-	for (int i = 0; i < n; i++)
-  	{
-	  	printf("Digite o valor para a posicao %d do vetor: \n", i+1);
-	  	scanf("%d", &user[i]);
-  	}
-	
-	return user;
-		
+  //Armazenando os dados em um vetor
+  for (int i = 0; i < *n; i++)
+  {
+    printf("\nDigite o valor para a posicao %d do vetor: ", i+1);
+    scanf("%d",&v[i]);
+  }
 }
 
 
-//Opcao 2 ----Erro
-void exibir(int *user, int n)
+//Opcao 2 - Exibir numero(s) cadastrados
+void exibir(int *vvetor, int n)
 {
 	printf("\nExibir numeros:\n");
 	
 	for(int i=0; i<n; i++)
 	{
-		printf("%d\n"), user[i];
+		printf("%d\n"), vvetor[i];
 	}
 	
 }
 
 
-//Opcao 3
+//Opcao 3 - Exibir quantidade de numeros cadastrados
 void exibirquant(int n)
 {	
 	printf("\nQuantidade de numeros cadastrados: %d\n", n);
 }
 
 
-//Opcao 4
-int removerult(int *user, int *n)
+
+//Opcao 4 - Remover ultimo numero cadastrado
+int removerult(int *vvetor, int *n)
 {
-	free(user);
-	user = NULL;
+	free(vvetor);
+	vvetor = NULL;
 	*n = *n - 1; //Atualiza o numero de componente do vetor
 }
+
+
 
 /*-------------------------------------------------------------------*/
 
 int main()
 {
 	int op; //opcoes do menu
-	int *usuario = NULL; //define o ponteiro de vetor
+	int *vetor = NULL; //define o ponteiro de vetor
 	int n_comp = 0; //n de componentes do vetor
   
+  
+  	printf("\nDetermine o tamanho de n: ");
+	scanf("%d", &n_comp);
 	
+	vetor = (int*) malloc (n_comp *sizeof(int));
+  
+  
 	do
 	{
 		printf("\n***Menu***\n");
-		printf("1- Cadastrar usuarios\n");
-		printf("2- Exibir numero(s) de usuarios cadastrados\n");
-		printf("3- Exibir quantidade de usuarios cadastrados\n");
-		printf("4- Remover ultimo usuario cadastrado\n");
+		printf("1- Cadastrar numero;\n");
+		printf("2- Exibir numero(s) cadastrados;\n");
+		printf("3-  Exibir quantidade de numeros cadastrados;\n");
+		printf("4- Remover ultimo numero cadastrado\n");
 		printf("5- Sair\n");
 		printf("Escolha umas das opcoes acima: ");
 
@@ -85,11 +86,11 @@ int main()
 		switch(op)
 		{
 			case 1:
-				cadastrarnumero(usuario, n_comp);
+				cadastrarnumero(vetor, &n_comp);
 				break;
 				
 			case 2:
-				exibir(usuario, n_comp);
+				exibir(vetor, n_comp);
 				break;
 				
 			case 3:
@@ -97,7 +98,7 @@ int main()
 				break;
 			
 			case 4:
-				removerult(usuario, &n_comp);
+				removerult(vetor, &n_comp);
 				break;
 				
 			case 5:

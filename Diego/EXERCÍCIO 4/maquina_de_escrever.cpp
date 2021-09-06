@@ -1,26 +1,35 @@
 #include "maquina_de_escrever.h"
 
 char* cadastrar_novo_caractere(char *texto, int *num_elementos, char c){
-	if(c == 27) //27 é a representação do "ESC" na tabela ASCII
+	if(c == 27) //27 ï¿½ a representaï¿½ï¿½o do "ESC" na tabela ASCII
 		return texto;
-	else if(texto == NULL){
+	else if(texto == NULL)
+	{
 		texto = (char*) malloc(sizeof(char));
-		if (texto == NULL){
-        	cout << "Não há memória suficiente para alocação." << endl;
+
+		if (texto == NULL)
+		{
+        	cout << "Nï¿½o hï¿½ memï¿½ria suficiente para alocaï¿½ï¿½o." << endl;
         	exit(1);
         }
+
         texto[*num_elementos] = c;
 		*num_elementos = *num_elementos + 1;
+		
 		return texto;
 	}
-	else{
+	else
+	{
 		texto = (char*) realloc(texto, (*num_elementos + 1) * sizeof(char));
-		if (texto == NULL){
-        	cout << "Não há memória suficiente para alocação." << endl;
+		if (texto == NULL)
+		{
+        	cout << "Nï¿½o hï¿½ memï¿½ria suficiente para alocaï¿½ï¿½o." << endl;
         	exit(1);
         }
+
         texto[*num_elementos] = c;
         *num_elementos = *num_elementos + 1;
+
         return texto;
 	}
 }

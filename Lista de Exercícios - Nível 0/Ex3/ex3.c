@@ -1,42 +1,28 @@
-/*
-Desenvolva um programa que implemente um vetor dinamico para armazenamento
-de numeros inteiros, com as seguintes funcoes basicaxzxs:
-
-1- Cadastrar numero;
-2- Exibir numero(s) cadastrados;
-3- Exibir quantidade de numeros cadastrados;
-4- Remover ultimo numero cadastrado;
-5- Sair.
-*/
-
 #include <stdio.h>
 #include<stdlib.h>
 #include "ex3.h"
 
-
 //Opcao 1 - Cadastrar numero
-int cadastrarnumero(int *v, int *n)
+int* cadastrarnumero(int *vvetor, int *n)
 {
 	if(n == 0)
 	{
-		v = (int*) malloc(sizeof(int));
-		
-		printf("\nCadastrar numero: ");
-		scanf("%d", v[0]);
-
+		vvetor = (int*) malloc(sizeof(int));
 	}
 	else
 	{
-		v = (int*) realloc(v, (*n + 1) * sizeof(int));
-		
-		printf("\nCadastrar numero: ");
-		scanf("%d", v[0]);
+		vvetor = (int*) realloc(vvetor, (*n + 1) * sizeof(int));
 	}
 	
+	printf("\nCadastrar numero: ");
+	scanf("%d", vvetor[*n]);
+	
 	*n = *n +1;
-	return v;
+	
+	return vvetor;
 
 }
+
 
 
 //Opcao 2 - Exibir numero(s) cadastrados
@@ -52,6 +38,7 @@ void exibir(int *vvetor, int n)
 }
 
 
+
 //Opcao 3 - Exibir quantidade de numeros cadastrados
 void exibirquant(int n)
 {	
@@ -61,10 +48,10 @@ void exibirquant(int n)
 
 
 //Opcao 4 - Remover ultimo numero cadastrado
-int removerult(int *vvetor, int *n)
+int* removerult(int* vvetor, int *n)
 {
 	free(vvetor);
 	vvetor = NULL;
-	*n = *n - 1; //Atualiza o numero de componente do vetor
+	*n = *n - 1;
+	return vvetor;
 }
-

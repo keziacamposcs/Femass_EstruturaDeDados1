@@ -9,13 +9,13 @@ de numeros inteiros, com as seguintes funcoes basicas:
 5- Sair.
 */
 
+//Bibliotecas
 #include <stdio.h>
 #include<stdlib.h>
 #include "ex3.h"
 
-
-
-int main()
+//Menu 
+int main() 
 {
 	int op; //opcoes do menu
 	int *vetor = NULL; //define o ponteiro de vetor
@@ -36,7 +36,7 @@ int main()
 		switch(op)
 		{
 			case 1:
-				cadastrarnumero(vetor, &n_comp);
+				vetor = cadastrarnumero(vetor, &n_comp);
 				break;
 				
 			case 2:
@@ -60,5 +60,5 @@ int main()
 	}
 	while(op);
 	
-	return(0);
+	return 0;
 }

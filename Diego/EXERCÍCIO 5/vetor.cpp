@@ -4,14 +4,14 @@ Pessoa* cadastrar_componente(Pessoa *v, int *num_componentes){
 	if(num_componentes == 0){
 		v = (Pessoa*) malloc(sizeof(Pessoa));
 		if (v == NULL){
-        	cout << "Não há memória suficiente para alocação." << endl;
+        	cout << "Nï¿½o hï¿½ memï¿½ria suficiente para alocaï¿½ï¿½o." << endl;
         	exit(1);
         }
 	}
 	else{
 		v = (Pessoa*) realloc(v, (*num_componentes + 1) * sizeof(Pessoa));
 		if (v == NULL){
-        	cout << "Não há memória suficiente para alocação." << endl;
+        	cout << "Nï¿½o hï¿½ memï¿½ria suficiente para alocaï¿½ï¿½o." << endl;
         	exit(1);
         }		
 	}
@@ -41,7 +41,7 @@ Pessoa* cadastrar_componente(Pessoa *v, int *num_componentes){
 				v[*num_componentes].cpf[indiceUltimoCaractere] = '\0';
 		}
 		if(strlen(v[*num_componentes].cpf) != 11)
-			cout << "CPF inválido. O CPF digitado deve conter 11 dígitos. Digite novamente o CPF: "; 
+			cout << "CPF invï¿½lido. O CPF digitado deve conter 11 dï¿½gitos. Digite novamente o CPF: "; 
 	}while(strlen(v[*num_componentes].cpf) != 11);
 	
 	cout << "Digite o endereco a ser cadastrado: ";
@@ -52,14 +52,17 @@ Pessoa* cadastrar_componente(Pessoa *v, int *num_componentes){
 			v[*num_componentes].endereco[indiceUltimoCaractere] = '\0';
 	}
 	
-	*num_componentes = *num_componentes + 1; //Atualiza o número de componentes do vetor
+	*num_componentes = *num_componentes + 1; //Atualiza o nï¿½mero de componentes do vetor
 	return v;
 }
+
+
+
 
 void mostra_vetor(Pessoa *v, int num_componentes){
 	int i;
 	if(num_componentes == 0)
-		cout << "Não existe componente cadastrado." << endl;
+		cout << "Nï¿½o existe componente cadastrado." << endl;
 	else{
 		if(num_componentes == 1)
 			cout << "Foi cadastrado o elemento abaixo:" << endl;
@@ -79,7 +82,7 @@ void mostra_vetor(Pessoa *v, int num_componentes){
 
 void imprime_numero_componentes(int num_componentes){
 	if(num_componentes == 0)
-		cout << "Não existe componente cadastrado." << endl;
+		cout << "Nï¿½o existe componente cadastrado." << endl;
 	else if(num_componentes == 1)
 		cout << "Foi cadastrado 1 componente." << endl;
 	else
@@ -89,16 +92,16 @@ void imprime_numero_componentes(int num_componentes){
 
 Pessoa* remove_ultimo_numero_cadastrado(Pessoa* v, int *num_componentes){
 	if(v == NULL)
-		cout << "O vetor é nulo. Não existe elemento para ser removido." << endl;
+		cout << "O vetor ï¿½ nulo. Nï¿½o existe elemento para ser removido." << endl;
 	else if(*num_componentes == 1){
 		free(v);
 		v = NULL;
-		*num_componentes = *num_componentes - 1; //Atualiza o número de componentes do vetor
+		*num_componentes = *num_componentes - 1; //Atualiza o nï¿½mero de componentes do vetor
 		cout << "Elemento removido com sucesso." << endl;
 	}
 	else{
 		v = (Pessoa*) realloc(v, (*num_componentes) * sizeof(Pessoa));
-		*num_componentes = *num_componentes - 1; //Atualiza o número de componentes do vetor
+		*num_componentes = *num_componentes - 1; //Atualiza o nï¿½mero de componentes do vetor
 		cout << "Elemento removido com sucesso." << endl;
 	}
 	cout << endl;

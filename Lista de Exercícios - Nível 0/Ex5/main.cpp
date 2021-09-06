@@ -1,94 +1,11 @@
-/*
-
-5- Evolua a questao (3) para cadastrar usuarios que possuem as informacaes: 
-Nome, RG, CPF, Endereco.
-
-*/
-
 #include <stdio.h>
 #include<stdlib.h>
+#include "ex5.h"
 
-
-/*----- Struct -----*/
-typedef struct
-{
-	char nome[50];
-	char rg[15];
-	char cpf[12];
-	char endereco[50];	
-} Usuario;
-/*----- Fim -----*/
-
-
-
-/* ----- Opcao 1 -----*/
-// usuario = cadastrarusuario(usuario, &n_comp);
-
-int* cadastrarusuario(int *u, int *n)
-{
-	printf("Informe o numero de componentes do vetor: \n");
-	scanf("%d", &n);
-	
-  	u = (int *) malloc(n * sizeof(int));
-  	v = (Pessoa*) malloc(sizeof(Pessoa));
-
-	
-	//Armazenando os dados em um vetor
-	for (int i = 0; i < n; i++)
-  	{
-	  	printf("Digite o valor para a posicao %d do vetor: \n", i+1);
-	  	scanf("%d", &user[i]);
-	  	
-	  	v = (Pessoa*) malloc(sizeof(Pessoa));
-  	}
-	
-	return user;
-		
-}
-/* ----- Fim 1 -----*/
-
-
-
-/* ----- Opcao 2 -----*/
-void exibir(int *user, int n)
-{
-	printf("\nExibir numeros:\n");
-	
-	for(int i=0; i<n; i++)
-	{
-		printf("%d\n"), user[i];
-	}
-	
-}
-/* ----- Fim 2 -----*/
-
-
-
-/* ----- Opcao 3 -----*/
-void exibirquant(int n)
-{	
-	printf("\nQuantidade de numeros cadastrados: %d\n", n);
-}
-/* ----- Fim 3 -----*/
-
-
-
-/* ----- Opcao 4 -----*/
-int removerult(int *user, int *n)
-{
-	free(user);
-	user = NULL;
-	*n = *n - 1; //Atualiza o numero de componente do vetor
-}
-/* ----- Fim 4 -----*/
-
-
-
-/*-------------------------------------------------------------------*/
 int main()
 {
 	int op; //opcoes do menu
-	Usuario *usuario = NULL; //define o ponteiro de vetor
+	Cadastro *u = NULL; //define o ponteiro de vetor
 	int n_comp = 0; //n de componentes do vetor
   
 	
@@ -107,19 +24,19 @@ int main()
 		switch(op)
 		{
 			case 1:
-				usuario = cadastrarusuario(usuario, &n_comp);
+				u = cadastrarusuario(u , &n_comp);
 				break;
 				
 			case 2:
-				exibir(usuario, n_comp);
+				exibir(u, n_comp);
 				break;
 				
 			case 3:
-				exibirquant(n_comp);
+				exibir_quant(n_comp);
 				break;
 			
 			case 4:
-				usuario = removerult(usuario, &n_comp);
+				u = removerult(u, &n_comp);
 				break;
 				
 			case 5:
@@ -130,6 +47,6 @@ int main()
 		}
 	}
 	while(op);
-	
 	return(0);
 }
+

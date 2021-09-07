@@ -92,24 +92,32 @@ int main()
 		{
 			case 1:
 				vetorinfo(vetor);
+				system("PAUSE");
 				break;
 				
 			case 2:
 				exibirimpar(vetor);
+				system("PAUSE");
 				break;
 				
 			case 3:
 				exibirpar(vetor);
+				system("PAUSE");
 				break;
 				
 			case 4:
-				system("pause");
 				printf("Encerrando o programa...");
+				system("PAUSE");
 				exit(0);
 				break;
+
+			default:
+				system("cls");
+				printf("Voce digitou %d. Opcao invalida.", op);
+				system("PAUSE");
 		}
 	}
-	while(op);
+	while(op != 4);
 	
 	return(0);
 }

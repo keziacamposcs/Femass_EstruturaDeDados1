@@ -1,15 +1,15 @@
-# Project: Projeto5
+# Project: Project6
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o
-LINKOBJ  = main.o
+OBJ      = main.o ex6.o
+LINKOBJ  = main.o ex6.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = Projeto5.exe
+BIN      = Project6.exe
 CXXFLAGS = $(CXXINCS) -g3 -O0
 CFLAGS   = $(INCS) -g3 -O0
 RM       = rm.exe -f
@@ -26,3 +26,6 @@ $(BIN): $(OBJ)
 
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+ex6.o: ex6.c
+	$(CPP) -c ex6.c -o ex6.o $(CXXFLAGS)

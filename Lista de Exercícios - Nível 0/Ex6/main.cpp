@@ -1,50 +1,59 @@
 /*
-Desenvolva uma solucao prototipada para um programa para
-biblioteca, capaz de manipular (ler/escrever) um arquivo com as informacoes de livros,
-prevendo os comandos e acoes:
-Tela principal:
-1- Cadastrar livro
-2- Consultar todos os livros
-3- Sair
+Desenvolva   uma   solucao   prototipada   para   
+um   programa   para biblioteca,capaz de manipular (ler/escrever)
+um arquivo com as informacoes de livros,prevendo os comandos e acoes
 */
 
-#include <stdlib.h>
+//Bibliotecas
 #include <stdio.h>
-#include "biblioteca.h"
+#include<stdlib.h>
+#include "ex6.h"
 
-
-int main()
+//Menu 
+int menu()
 {
+	system("cls");
 	int op;
-	
+	printf("***Menu***\n");
+	printf("1 - Cadastrar livro;\n");
+	printf("2 - Consultar todos os livros;\n");
+	printf("3 - Sair\n");
+	printf("Escolha umas das opcoes acima: ");
+	scanf("%d", &op);
+	return op;
+}
+
+int main() 
+{
+	int op; //opcoes do menu
+	Cadastro *livro = NULL; //define o ponteiro de vetor
+	int n_comp = 0; //n de componentes do vetor
+    
 	do
 	{
-		printf("\n***Menu***\n");
-		printf("1- Cadastrar livro\n");
-		printf("2- Consultar todos os livros\n");
-		printf("3- Sair\n");
-		printf("Escolha umas das opcoes acima: ");
-		
-		scanf("%d", &op);
-		
-		
-		switch(op)
-		{
+		op = menu();
+		switch(op){
 			case 1:
-				cadastro(vetor);
+				livro = cadastrar_livro(livro, &n_comp);
 				break;
 				
 			case 2:
-				consulta(vetor);
+				exibir(livro, n_comp);
+				system("PAUSE");
 				break;
 				
 			case 3:
-				system("pause");
-				printf("Encerrando o programa...");
-				exit(0);
+				printf("Saindo  do programa...\n");
+				system("PAUSE");
 				break;
+				
+			default:
+				system("cls");
+				printf("Voce digitou %d. Opcao invalida.", op);
+				system("PAUSE");
 		}
 	}
-	while(op);
-	return(0);
+	while(op != 3);
+	
+	return 0;
 }

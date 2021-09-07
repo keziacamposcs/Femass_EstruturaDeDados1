@@ -24,7 +24,6 @@ int main () {
 			fprintf (arq, "%-30s %-4d %.2f\n",titulo, codlivro, preco); //escrevendo em arquivo com formato pertinente
 		}
 	} while (strlen(titulo) > 1);
-	cout<<"Fim de execucao!\n");
 	fclose(arq); 
 	system("pause");
 	return 0;

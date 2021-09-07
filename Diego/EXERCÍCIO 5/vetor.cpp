@@ -1,23 +1,28 @@
 #include "vetor.h"
 
 Pessoa* cadastrar_componente(Pessoa *v, int *num_componentes){
-	if(num_componentes == 0){
+	if(num_componentes == 0)
+	{
 		v = (Pessoa*) malloc(sizeof(Pessoa));
-		if (v == NULL){
+		if (v == NULL)
+		{
         	cout << "N�o h� mem�ria suficiente para aloca��o." << endl;
         	exit(1);
         }
 	}
-	else{
+	else
+	{
 		v = (Pessoa*) realloc(v, (*num_componentes + 1) * sizeof(Pessoa));
-		if (v == NULL){
+		if (v == NULL)
+		{
         	cout << "N�o h� mem�ria suficiente para aloca��o." << endl;
         	exit(1);
         }		
 	}
 	cout << "Digite o nome a ser cadastrado: ";
 	getchar();
-	if(fgets(v[*num_componentes].nome, 30, stdin) != NULL) {
+	if(fgets(v[*num_componentes].nome, 30, stdin) != NULL) 
+	{
 		/* Remove a nova linha (\n), caso ela tenha sido lida pelo fgets */
 		int indiceUltimoCaractere = strlen(v[*num_componentes].nome) - 1;
 		if(v[*num_componentes].nome[indiceUltimoCaractere] == '\n')
@@ -25,7 +30,8 @@ Pessoa* cadastrar_componente(Pessoa *v, int *num_componentes){
 	}
 	
 	cout << "Digite o RG a ser cadastrado: ";
-	if(fgets(v[*num_componentes].rg, 15, stdin) != NULL) {
+	if(fgets(v[*num_componentes].rg, 15, stdin) != NULL) 
+	{
 		/* Remove a nova linha (\n), caso ela tenha sido lida pelo fgets */
 		int indiceUltimoCaractere = strlen(v[*num_componentes].rg) - 1;
 		if(v[*num_componentes].rg[indiceUltimoCaractere] == '\n')
@@ -34,7 +40,8 @@ Pessoa* cadastrar_componente(Pessoa *v, int *num_componentes){
 	
 	cout << "Digite o CPF a ser cadastrado: ";
 	do{
-		if(fgets(v[*num_componentes].cpf, 13, stdin) != NULL) {
+		if(fgets(v[*num_componentes].cpf, 13, stdin) != NULL) 
+		{
 			/* Remove a nova linha (\n), caso ela tenha sido lida pelo fgets */
 			int indiceUltimoCaractere = strlen(v[*num_componentes].cpf) - 1;
 			if(v[*num_componentes].cpf[indiceUltimoCaractere] == '\n')
@@ -42,10 +49,12 @@ Pessoa* cadastrar_componente(Pessoa *v, int *num_componentes){
 		}
 		if(strlen(v[*num_componentes].cpf) != 11)
 			cout << "CPF inv�lido. O CPF digitado deve conter 11 d�gitos. Digite novamente o CPF: "; 
-	}while(strlen(v[*num_componentes].cpf) != 11);
+	}
+	while(strlen(v[*num_componentes].cpf) != 11);
 	
 	cout << "Digite o endereco a ser cadastrado: ";
-	if(fgets(v[*num_componentes].endereco, 30, stdin) != NULL) {
+	if(fgets(v[*num_componentes].endereco, 30, stdin) != NULL) 
+	{
 		/* Remove a nova linha (\n), caso ela tenha sido lida pelo fgets */
 		int indiceUltimoCaractere = strlen(v[*num_componentes].endereco) - 1;
 		if(v[*num_componentes].endereco[indiceUltimoCaractere] == '\n')

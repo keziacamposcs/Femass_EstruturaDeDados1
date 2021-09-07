@@ -1,5 +1,5 @@
 #include <iostream>
-#include <locale> //Habilitar padões de caractere de teclado Ptb
+#include <locale> //Habilitar padï¿½es de caractere de teclado Ptb
 #include <stdlib.h>	/* Para usar malloc e free */
 #include "vetor.h"
 using namespace std;
@@ -13,14 +13,14 @@ using namespace std;
 
 int menu(){
 	int op;
-	cout << "Escolha a opção:"  << endl;
-	cout << "1 - Cadastrar número" << endl;
+	cout << "Escolha a opï¿½ï¿½o:"  << endl;
+	cout << "1 - Cadastrar nï¿½mero" << endl;
 	cout << "2 - Exibir numero(s) cadastrados)" << endl;
-	cout << "3 - Exibir quantidade de números cadastrados" << endl;
-	cout << "4 - Remover último número cadastrado" << endl;
+	cout << "3 - Exibir quantidade de nï¿½meros cadastrados" << endl;
+	cout << "4 - Remover ï¿½ltimo nï¿½mero cadastrado" << endl;
 	cout << "5 - Carregar base de dados do arquivo" << endl;
 	cout << "6 - Sair" << endl;
-	cout << "Opção: ";
+	cout << "Opï¿½ï¿½o: ";
 	cin >> op;
 	return op;
 }
@@ -29,12 +29,13 @@ int main(int argc, char** argv) {
 	setlocale(LC_ALL, "Portuguese");
 	setlocale(LC_ALL, "Portuguese");
 	int op;
-	int num_componentes = 0; //Inicializa o número de componentes do vetor
+	int num_componentes = 0; //Inicializa o nï¿½mero de componentes do vetor
 	Pessoa *v = NULL; //define o ponteiro de v
 	
 	// Abrindo o arquivo
-	FILE *arq; //declaração do arquivo
-	if ((arq = fopen("Cadastro.txt","r")) == NULL) {
+	FILE *arq; //declaraï¿½ï¿½o do arquivo
+	if ((arq = fopen("Cadastro.txt","r")) == NULL) 
+	{
 		cout << "Erro na abertura do arquivo\n"; 
 		return -1;
 	}
@@ -42,24 +43,24 @@ int main(int argc, char** argv) {
 	do{
 		op = menu();
 		switch(op){
-			case 1: //Cadastrar número
+			case 1: //Cadastrar nï¿½mero
 				CLEAR_SCREEN;
 				v = cadastrar_componente(v, &num_componentes);
 				CLEAR_SCREEN;
 				break;
-			case 2: //Exibir números cadastrados
+			case 2: //Exibir nï¿½meros cadastrados
 				CLEAR_SCREEN;
 				mostra_vetor(v, num_componentes);
 				system("PAUSE");
 				CLEAR_SCREEN;
 				break;
-			case 3: //Exibir quantidade de números cadastrados
+			case 3: //Exibir quantidade de nï¿½meros cadastrados
 				CLEAR_SCREEN;
 				imprime_numero_componentes(num_componentes);
 				system("PAUSE");
 				CLEAR_SCREEN;
 				break;
-			case 4: //Remover último número cadastrado
+			case 4: //Remover ï¿½ltimo nï¿½mero cadastrado
 				CLEAR_SCREEN;
 				v = remove_ultimo_numero_cadastrado(v, &num_componentes);
 				system("PAUSE");
@@ -77,10 +78,10 @@ int main(int argc, char** argv) {
 				break;
 			default:
 				CLEAR_SCREEN;
-				cout << "Opção inválida." << endl;
+				cout << "Opï¿½ï¿½o invï¿½lida." << endl;
 		}
 	}while(op != 5);
-	free(v); 					// Libera a área d memória utilizada no vetor
+	free(v); 					// Libera a ï¿½rea d memï¿½ria utilizada no vetor
 	fclose (arq); 				// Fecha o arquivo
 	return 0;
 }

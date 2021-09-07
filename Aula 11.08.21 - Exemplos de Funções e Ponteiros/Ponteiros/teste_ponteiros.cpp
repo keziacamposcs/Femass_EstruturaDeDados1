@@ -7,19 +7,19 @@
  
 int main(void)
 {
-   //valor √© a vari√°vel que
-   //ser√° apontada pelo ponteiro
+   //valor È a vari·vel que
+   //ser· apontada pelo ponteiro
    int valor = 27;
  
-   //declara√ß√£o de vari√°vel ponteiro
+   //declaraÁ„o de vari·vel ponteiro
    int *ptr;
  
-   //atribuindo o endere√ßo da vari√°vel valor ao ponteiro
+   //atribuindo o endereÁo da vari·vel valor ao ponteiro
    ptr = &valor;
  
    printf("Utilizando ponteiros\n\n");
    printf ("Conteudo da variavel valor: %d\n", valor);
-   printf ("Endere√ßo da variavel valor: %x \n", &valor);
+   printf ("EndereÁo da variavel valor: %x \n", &valor);
    printf ("Conteudo da variavel ponteiro ptr: %x \n", ptr);
    printf ("Acessando a variavel apontada pelo ponteiro ptr: %d \n", *ptr);
    getch(); //efeito de pausa - previsto pela biblioteca conio.h

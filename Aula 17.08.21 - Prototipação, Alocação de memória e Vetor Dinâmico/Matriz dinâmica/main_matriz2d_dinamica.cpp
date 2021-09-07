@@ -1,4 +1,4 @@
-//Dicas e exemplos - aloca√ß√£o de matriz 2D din√¢mica
+//Dicas e exemplos - alocaÁ„o de matriz 2D din‚mica
 //leitura-extra: https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/
 
 #include <iostream>
@@ -16,38 +16,39 @@ void imprimir(int **arr, int r, int c){
 }
 
 int main()
+
 {
-	int r = 3, c = 4, i, j, count; 
+int r = 3, c = 4, i, j, count; 
   	//teste - iniciando uma suposta matriz 3 x 4...
     int **arr = (int **)malloc(r * sizeof(int *)); //primeiro, alocando linhas...
     for (i=0; i<r; i++) //em cada linha existente, alocar colunas...
          arr[i] = (int *)malloc(c * sizeof(int)); 
   
     // Note that arr[i][j] is same as *(*(arr+i)+j) 
-    count = 0; //usando um contador para popular a matriz em cada posi√ß√£o existente
+    count = 0; //usando um contador para popular a matriz em cada posiÁ„o existente
     for (i = 0; i <  r; i++) 
       for (j = 0; j < c; j++) 
          arr[i][j] = ++count;  // OR *(*(arr+i)+j) = ++count 
   
     imprimir(arr, r, c);
     
-	//cortando uma linha no final por realoca√ß√£o
+	//cortando uma linha no final por realocaÁ„o
 	r--;
-	arr = (int **)realloc(arr,  r* sizeof(int*)); //removendo uma nova linha, com o n¬∫ padr√£o de colunas atuais nesta
+	arr = (int **)realloc(arr,  r* sizeof(int*)); //removendo uma nova linha, com o n∫ padr„o de colunas atuais nesta
 	imprimir(arr, r, c);
 	
-	//adicionando uma linha no final por realoca√ß√£o
+	//adicionando uma linha no final por realocaÁ„o
 	r++;
-	arr = (int **)realloc(arr,  r* sizeof(int*)); //adicionando uma nova linha, com o n¬∫ padr√£o de colunas atuais nesta
-	for (int j=0; j < c ; j++) //fixar linha em adi√ß√£o e iterar coluna para atribui√ß√£o
+	arr = (int **)realloc(arr,  r* sizeof(int*)); //adicionando uma nova linha, com o n∫ padr„o de colunas atuais nesta
+	for (int j=0; j < c ; j++) //fixar linha em adiÁ„o e iterar coluna para atribuiÁ„o
 		arr[r-1][j] = 0;
 	imprimir(arr, r, c);
 	
-	//adicionando uma coluna no final por realoca√ß√£o
+	//adicionando uma coluna no final por realocaÁ„o
 	c++;
 	for (i=0; i<r; i++) //para cada linha existente, adicionar coluna... 
          arr[i] = (int *)realloc(arr[i], c * sizeof(int)); //adicionando coluna em cada linha existente...
-	for (int i=0; i < r ; i++) //fixar coluna em adi√ß√£o e iterar linha para atribui√ß√£o
+	for (int i=0; i < r ; i++) //fixar coluna em adiÁ„o e iterar linha para atribuiÁ„o
 		arr[i][c-1] = 0;
 	imprimir(arr, r, c);
 	

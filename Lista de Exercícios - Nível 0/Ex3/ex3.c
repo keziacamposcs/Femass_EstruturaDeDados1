@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include<stdlib.h>
-#include "ex3.h"
+#include "Ex3.h"
 
 //Opcao 1 - Cadastrar numero
 int* cadastrarnumero(int *vvetor, int *n)
@@ -15,15 +15,13 @@ int* cadastrarnumero(int *vvetor, int *n)
 	}
 	
 	printf("\nCadastrar numero: ");
-	scanf("%d", vvetor[*n]);
+	scanf("%d", &vvetor[*n]);
 	
-	*n = *n +1;
+	*n = *n + 1;
 	
 	return vvetor;
 
 }
-
-
 
 //Opcao 2 - Exibir numero(s) cadastrados
 void exibir(int *vvetor, int n)
@@ -32,12 +30,9 @@ void exibir(int *vvetor, int n)
 	
 	for(int i=0; i<n; i++)
 	{
-		printf("%d\n"), vvetor[i];
+		printf("%d\n", vvetor[i]);
 	}
-	
 }
-
-
 
 //Opcao 3 - Exibir quantidade de numeros cadastrados
 void exibirquant(int n)
@@ -50,8 +45,15 @@ void exibirquant(int n)
 //Opcao 4 - Remover ultimo numero cadastrado
 int* removerult(int* vvetor, int *n)
 {
-	free(vvetor);
-	vvetor = NULL;
-	*n = *n - 1;
+	if(*n > 0)
+	{
+		vvetor = (int*) realloc(vvetor, (*n - 1) * sizeof(int));
+		*n = *n - 1;
+		printf("Elemento removido com sucesso.\n");
+	}
+	else
+	{
+		printf("Nao existe numero para ser removido.\n");
+	}
 	return vvetor;
 }

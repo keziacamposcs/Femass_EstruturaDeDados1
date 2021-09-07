@@ -12,7 +12,22 @@ de numeros inteiros, com as seguintes funcoes basicas:
 //Bibliotecas
 #include <stdio.h>
 #include<stdlib.h>
-#include "ex3.h"
+#include "Ex3.h"
+
+int menu()
+{
+	system("cls");
+	int op;
+	printf("***Menu***\n");
+	printf("1 - Cadastrar numero;\n");
+	printf("2 - Exibir numero(s) cadastrados;\n");
+	printf("3 - Exibir quantidade de numeros cadastrados;\n");
+	printf("4 - Remover ultimo numero cadastrado\n");
+	printf("5 - Sair\n");
+	printf("Escolha umas das opcoes acima: ");
+	scanf("%d", &op);
+	return op;
+}
 
 //Menu 
 int main() 
@@ -23,42 +38,39 @@ int main()
     
 	do
 	{
-		printf("\n***Menu***\n");
-		printf("1- Cadastrar numero;\n");
-		printf("2- Exibir numero(s) cadastrados;\n");
-		printf("3-  Exibir quantidade de numeros cadastrados;\n");
-		printf("4- Remover ultimo numero cadastrado\n");
-		printf("5- Sair\n");
-		printf("Escolha umas das opcoes acima: ");
-
-		scanf("%d", &op);
-		
-		switch(op)
-		{
+		op = menu();
+		switch(op){
 			case 1:
 				vetor = cadastrarnumero(vetor, &n_comp);
 				break;
 				
 			case 2:
 				exibir(vetor, n_comp);
+				system("PAUSE");
 				break;
 				
 			case 3:
 				exibirquant(n_comp);
+				system("PAUSE");
 				break;
 			
 			case 4:
-				removerult(vetor, &n_comp);
+				vetor = removerult(vetor, &n_comp);
+				system("PAUSE");
 				break;
 				
 			case 5:
-				system("pause");
-				printf("Saindo  do programa...");
-				exit(0);
+				printf("Saindo  do programa...\n");
+				system("PAUSE");
 				break;
+				
+			default:
+				system("cls");
+				printf("Voce digitou %d. Opcao invalida.", op);
+				system("PAUSE");
 		}
 	}
-	while(op);
+	while(op != 5);
 	
 	return 0;
 }

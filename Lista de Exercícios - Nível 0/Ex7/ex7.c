@@ -17,20 +17,25 @@ Cadastro* cadastrarusuario(Cadastro *u, int *n)
 	
 	printf("\nNome: ");
 	scanf("%s", &u[*n].nome);
+	fprintf (&u[*n].nome, sizeof(Cadastro), 50, arq);
 	
 	printf("\nRG:");
 	scanf("%s", &u[*n].rg);
+	fprintf (&u[*n].rg, sizeof(Cadastro), 9, arq);
+
 	
 	printf("\nCPF:");
 	scanf("%s", &u[*n].cpf);
+	fprintf (&u[*n].cpf, sizeof(Cadastro),11, arq);
+
 
 	printf("\nEndereco:");
 	scanf("%s", &u[*n].endereco);
+	fprintf (&u[*n].endereco, sizeof(Cadastro), 9, arq);
 	
 	*n = *n + 1;
-	
-	return u;
 
+	return u;
 }
 
 //Opcao 2 - Exibir numero(s) cadastrados
@@ -69,4 +74,12 @@ Cadastro* removerult(Cadastro* u, int *n)
 	return u;
 }
 
+//Opcao 5 - Carregar base  de  dados do arquivo
+Cadastro* arquivo(Cadastro* u, int *n, int a)
+{
+	for(int i=0; i<n; i++)
+	{
+		fscanf(a, "%s | %s | %s | %s", &u[i].nome, &u[i].rg &u[i].cpf, &u[i].endereco); 
+	}
+}
 

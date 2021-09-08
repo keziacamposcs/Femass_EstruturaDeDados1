@@ -12,5 +12,5 @@ Cadastro* cadastrarusuario(Cadastro *u, int *n);
 void exibir(Cadastro *u, int n);
 void exibirquant(int n);
 Cadastro* removerult(Cadastro* u, int *n);
-//Cadastro* arquivo(Cadastro *u, int *n, arq);
+Cadastro* arquivo(Cadastro* u, int *n, int a)
 

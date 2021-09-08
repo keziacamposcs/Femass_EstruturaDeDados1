@@ -47,8 +47,8 @@ int main()
 		printf("Erro na abertura do arquivo\n"); 
 		return -1;
 	}
-/*----- Fim da abertura arquivo -----*/
-    
+	
+    ch = getc(arq); //lê o 1o caractere do arquivo    
     
     
     //Execucao do menu

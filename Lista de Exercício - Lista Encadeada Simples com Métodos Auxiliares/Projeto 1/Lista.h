@@ -21,10 +21,14 @@ Lista* retira (Lista* l, int v);
 void libera (Lista* l);
 
 //continuacao
-Lista* mostrainicio (Lista* l);
-Lista* mostrafim (Lista* l);
-void tamanho (Lista* l);
-void ocorrencias(Lista* l);
-Lista* insereFim (Lista* l);
-Lista* removeInicio (Lista* l);
-Lista* removeFim (Lista* l);
+void mostrainicio(Lista* l); //5
+void mostrafim(Lista* l); //6
+void tamanho (Lista* l); //7
+void ocorrencias(Lista* l, int v); //8
+Lista* cria (int v);
+void inserefim(Lista* l, int v); //9
+Lista* removeinicio(Lista* l); //10
+Lista* removefim(Lista* l); //11
+
+
+

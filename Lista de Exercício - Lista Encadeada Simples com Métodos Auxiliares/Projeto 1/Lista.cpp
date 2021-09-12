@@ -1,7 +1,7 @@
 //Lista.cpp
 #include "Lista.h"
 
-/* função de inicialização: retorna uma lista vazia */
+/* funcao de inicializacao: retorna uma lista vazia */
 Lista* inicializa ()
 {
 	return NULL;
@@ -9,65 +9,76 @@ Lista* inicializa ()
 
 
 
-/* inserção no início: retorna a lista atualizada */
+/*
+1 - Insercao de elementos no inicio: retorna a lista atualizada
+*/
 Lista* insere_inicio (Lista* l, int i)
 {
 	Lista* novo = (Lista*) malloc(sizeof(Lista));
 	novo->info = i;
 	novo->prox = l;
-	
+  	
 	return novo;
 }
 
 
 
-/* função imprime: imprime valores dos elementos */
+/*
+2-funcao imprime: imprime valores dos elementos
+*/
 void imprime (Lista* l)
 {
-	if (!vazia(l))
+	Lista* p;
+	
+	for(p = l; p!= NULL; p = p->prox)
 	{
-		cout << "Info: ";
-		Lista* p; /* variável auxiliar para percorrer a lista */
-	 	for (p = l; p != NULL; p = p->prox)
-	 		cout << p->info << ", ";
-	 	cout << endl;
-	} 
-	else
-	cout << "Lista vazia! \n";	
+		printf("Info = %d\n", p->info);
+	}
 }
 
 
 
-/* função vazia: retorna 1 se vazia ou 0 se não vazia */
+/* funcao vazia: retorna 1 se vazia ou 0 se nao vazia */
 bool vazia (Lista* l)
 {
 	return (l == NULL);
 }
 
 
-/* função busca: busca um elemento na lista */
+/*
+3 - funcao busca: busca um elemento na lista
+*/
 Lista* busca (Lista* l, int v)
 {
 	Lista* p;
 	for (p=l; p!=NULL; p=p->prox)
+	{
  		if (p->info == v)
+ 		{
  			return p;
- 			
- 	return NULL; /* não achou o elemento */
+ 		}
+ 	}
+ 	
+ 	return NULL; /* nao achou o elemento */
 }
 
 void busca_informe (Lista* l, int v)
 {
 	if (!vazia(busca (l, v)))
 	{
-		cout << "O valor " << v << " está na lista! \n";
-	} else 
-		cout << "O valor " << v << " não está na lista! \n";
+		printf("O valor %d esta na lista!", v);
+	}
+	else
+	{
+		printf("O valor %d nao esta na lista!", v);
+	}
 }
 
 
 
-/* função retira: retira elemento da lista */
+/*
+4 - funcao retira: retira elemento da lista
+*/
 Lista* retira (Lista* l, int v)
 {
 	Lista* ant = NULL; /* ponteiro para elemento anterior */
@@ -79,56 +90,220 @@ Lista* retira (Lista* l, int v)
 		ant = p;
 	 	p = p->prox;
 	}
+	
 	/* verifica se achou elemento */
 	if (p == NULL)
+	{
+		return l; /*nao achou: retorna lista original*/
+	}
 	
+	
+	//Senao...
+	
+	/*retira elemento*/
+	if(ant == NULL)
+	{
+		l = p->prox; /*retira elemento do inicio*/
+	}
+	else
+	{
+		ant->prox = p->prox; /*retira elemento do meio da lista*/
+	}
+	free(p);
+	return l;
+}
+
+
+/* funcao libera: libera elemento da lista */
+void libera (Lista* l)
+{
+	Lista* p = l;
+	
+	while(p != NULL)
+	{
+		Lista* t = p->prox;
+		
+		while(p !=NULL)
+		{
+			Lista* t = p->prox; /*guarda referencia para o proximo elemento*/
+			free(p);
+			p = t;
+		}
+	}
+}
+  
 	
 //Continuacao...
-/* mostraInicio() - retornar o nó-dado no início da lista para exibição, sem retirá-lo */
-Lista* mostrainicio (int v)
+
+/*
+5 - mostraInicio() - retornar o no-dado no inicio da lista para exibicao, sem retira-lo
+*/
+void mostrainicio(Lista* l)
 {
-	Lista* novo = (Lista*) malloc(sizeof(Lista));
-	return novo;
+	Lista* p = l; /* faz apontar para o no inicial */
+		
+/* testa se lista nao e vazia */
+	if (!vazia(l))
+	{		
+		do
+		{
+			p = p->prox; /* avanca para o proximo no */
+		}
+		while (p->prox != NULL);
+	}
+
+	printf("\n No-dado no inicio da lista: %d\n", p->info);
 }
 
 
-/* mostraFim() - retornar o nó-dado no fim da lista para exibição, sem retirá-lo;*/
-Lista* mostrafim (Lista* l)
+/*
+6- mostraFim() - retornar o no-dado no fim da lista para exibicao, sem retira-lo;
+*/
+void mostrafim(Lista* l)
 {
-	
+	Lista* p = l; /* faz apontar para o no inicial */
+
+	/* testa se lista nao e vazia */
+	if (p!= NULL)
+	{
+		printf("\n No do fim da lista: %d \n", p->info); /* imprime informacao do no */
+	}
 }
 
 
-/* tamanho() - retorna um valor inteiro representando a quantidade de dados contidos na lista, para que seja informado ao usuário;*/
+/* 
+7 - tamanho() - retorna um valor inteiro representando a quantidade de dados contidos na lista, para que seja informado ao usuario;
+*/
 void tamanho (Lista* l)
-{
-	rintf("\nQuantidade de numeros cadastrados: %d\n", l);
-}
-
-
-/* ocorrencias() - retorna o número de ocorrências de um dado valor inteiro informado pelo usuário na lista (lembrando que a lista poderá conter dados repetidos);*/
-void ocorrencias(Lista* l)
-{
+{	
+	Lista* p;
+	int count=0;
+	
+	for (p=l; p != NULL; p=p->prox)
+	{
+		count++;
+	}
+	
+	printf("\nQuantidade de numeros cadastrados: %d\n", count);
 	
 }
 
 
-/*insereFim() - deverá inserir um novo nó-dado no fim da lista;*/
-Lista* insereFim (Lista* l)
-{
+/*
+8 - ocorrencias() - retorna o numero de ocorrencias de um dado valor inteiro informado pelo
+usuario na lista (lembrando que a lista podera conter dados repetidos);
+*/
+void ocorrencias(Lista* l, int v)
+{	
+	Lista* p;
+	int count=0;
 	
+	for (p=l; p != NULL; p=p->prox)
+	{
+		if (p->info == v)
+		{
+			count++;
+		}
+	}
+	
+	printf("\nOcorrencias do %d: %d\n ", v, count);
+	
+}
+	
+
+/*
+9 - insereFim() - devera inserir um novo no-dado no fim da lista;
+*/
+
+/* funcao auxiliar: cria e inicializa um no */
+Lista* cria (int v)
+{
+ Lista* p = (Lista*) malloc(sizeof(Lista));
+ p->info = v;
+ return p;
+}
+
+void inserefim(Lista* l, int v)
+{
+	Lista* novo = cria(v); /* cria novo no */
+	Lista* ant = NULL; /* ponteiro para elemento anterior */
+	Lista* p = l; /* ponteiro para percorrer a lista*/
+ 	
+ 	
+	 /* procura posicao de insercao */
+	 while (p != NULL && p->info < v)
+ 	{
+ 		ant = p;
+ 		p = p->prox;
+ 	}
+ 	
+ 	/* insere elemento */
+ 	if (p->prox == NULL)
+	{ 
+ 		novo->prox = l;
+ 		l = novo;
+ 	}
+
+ 	 printf("\n%d", l);
 }
 
 
-/*removeInicio() - remove nó-dado no início da Lista.*/
-Lista* removeInicio (Lista* l)
+/*
+10 - removeInicio() - remove no-dado no inicio da Lista.
+*/
+Lista* removeinicio(Lista* l)
 {
+	Lista* ant = NULL; /* ponteiro para elemento anterior */
+ 	Lista* p = l; /* ponteiro para percorrer a lista*/
 	
+	while (p != NULL)
+	{
+ 		ant = p;
+ 		p = p->prox;
+ 	}
+ 	
+	if (p == NULL)
+	{
+ 		return l; /* nao achou: retorna lista original */
+	}
+	
+	//ifelse
+	
+	if (ant == NULL)
+	{
+ 		/* retira elemento do inicio */
+ 		l = p->prox;
+	}
+	
+	return l;
 }
 
 
-/*removeFim() - remove nó-dado no fim da Lista.*/
-Lista* removeFim (Lista* l)
+/*
+11 - removeFim() - remove no-dado no fim da Lista.
+*/
+Lista* removefim(Lista* l)
 {
+	Lista* ant = NULL; /* ponteiro para elemento anterior */
+ 	Lista* p = l; /* ponteiro para percorrer a lista*/
 	
+	while (p != NULL)
+	{
+ 		ant = p;
+ 		p = p->prox;
+ 	}
+ 	
+	if (p != NULL)
+	{
+ 		return l; /* nao achou: retorna lista original */
+	}
+	
+	//ifelse
+	
+	if (ant != NULL)
+	{
+ 		l = p->prox;
+	}
+	
+	return l;
 }

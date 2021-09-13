@@ -1,0 +1,14 @@
+Pilha - projeto de biblioteca prototipada com uso de Lista Encadeada Simples
+Pilha - projeto de biblioteca prototipada com uso de Lista Encadeada Simples
+
+---
+
+Com base no material de leitura sobre Pilha, desenvolva um projeto de biblioteca C++, conforme:
+
+- Ter ao menos os arquivos equivalentes: main.cpp, pilha.cpp e pilha.h.
+
+- Pilha deve ter as funções básicas e auxiliares funcionais, invocadas a partir do main: push, pop, top, isEmpty, size, mostrar (este exibe todos os dados na pilha).
+
+- A alocação de dados inteiros na Pilha deve ser feita por comandos de alocação de memória dinâmica via biblioteca de Lista Encadeada Simples (inclua ao seu projeto Lista.h e Lista.cpp, fazendo o include desta bib em pilha.h a fim de utilizar funções pertinentes e reaproveitar código).
+
+- Main deve simular operações exemplificadas em tabela demonstrativa no material de leitura, dispensando menu para com o usuário.

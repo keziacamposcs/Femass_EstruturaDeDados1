@@ -2,12 +2,35 @@
 
 #include "pilha.h"
 
+
+Lista* inicializa ()
+{
+	return NULL;
+}
+
+
+/* funcao imprime: imprime valores dos elementos */
+void imprime (Lista* l)
+{
+	Lista* p;
+	
+	for(p = l; p!= NULL; p = p->prox)
+	{
+		printf("Info = %d\n", p->info);
+	}
+}
+
+
 /*
 push(o): Insere o objeto (o) no topo da pilha.
 */
 Lista* push (Lista* l, int i)
 {
-	l = insere_inicio(l, int j); 
+	Lista* novo = (Lista*) malloc(sizeof(Lista));
+	novo->info = i;
+	novo->prox = l;
+  	
+	return novo;
 }
 
 
@@ -15,30 +38,11 @@ Lista* push (Lista* l, int i)
 pop( ): Retira o objeto no topo da pilha e o retorna. 
 Ocorre um erro no caso da pilhaestiver vazia.
 */
-
-//ERRADO
-void pop (Lista* l)
+Lista* pop (Lista* l)
 {
-	if ( l!= 0)
-	{
-		Lista* p = l; /* faz apontar para o no inicial */
-				
-		/* testa se lista nao e vazia */
-			if (!vazia(l))
-			{		
-				do
-				{
-					p = p->prox; /* avanca para o proximo no */
-				}
-				while (p->prox != NULL);
-			}
-		
-			printf("\n No-dado no inicio da lista: %d\n", p->info);	
-	}
-	else
-		printf("\nERRO\n");
-	
-
+	Lista* novo = l->prox;
+	free(l);
+	return novo;
 }
 
 
@@ -65,30 +69,29 @@ void size(Lista* l)
 isEmpty( ): Retorna um booleano indicando se a pilha
 está vazia. (“True” – caso positivo).
 */
-void isempty (Lista* l)
-{
-	vazia(l);
-}
+
 
 
 /*
 top( ): Retorna o objeto no topo da pilha, sem removê-lo.
 Ocorre erro no caso da pilha estiver vazia.
 */
-void top (Lista* l)
+
+
+void top(Lista* l)
 {
 	Lista* p = l; /* faz apontar para o no inicial */
-			
-	/* testa se lista nao e vazia */
-		if (!vazia(l))
-		{		
-			do
-			{
-				p = p->prox; /* avanca para o proximo no */
-			}
-			while (p->prox != NULL);
+		
+/* testa se lista nao e vazia */
+	if (l != NULL)
+	{		
+		do
+		{
+			p = p->prox; /* avanca para o proximo no */
 		}
-	
-		printf("\n No-dado no inicio da lista: %d\n", p->info);
+		while (p->prox != NULL);
 	}
+
+	printf("\n No-dado no inicio da lista: %d\n", p->info);
+}
 

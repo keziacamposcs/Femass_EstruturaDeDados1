@@ -1,7 +1,6 @@
 #include "pilha.h"
 
-
-int main()
+int main(int argc, char** argv) 
 {
 	Lista* l = inicializa();
 	
@@ -22,26 +21,30 @@ int main()
 
 	pop(l); //Error
 	
-	isEmpty(l); //True
+	//isempty(l); //True
 	
 	l = push(l, 9); 
 	l = push(l, 7); 
 	l = push(l, 3); 
 	l = push(l, 5); 
+	imprime(l);
 	
 	size(l);
 
 	pop(l);
+	imprime(l);
 	
 	l = push(l, 8); 
+	imprime(l);
 	
 	pop(l);
-
+	imprime(l);
+	
 	pop(l);
+	imprime(l);
 	
 	
-	
-	libera(l);
+//	libera(l);
 	system("pause");
 	return 0;
 }

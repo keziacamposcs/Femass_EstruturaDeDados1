@@ -1,11 +1,9 @@
-//Lista.cpp
-#include "Lista.h"
+//lista.cpp
+#include "lista.h"
 
 /* funcao de inicializacao: retorna uma lista vazia */
-Lista* inicializa ()
-{
-	return NULL;
-}
+Lista* inicializa ();
+
 
 
 
@@ -307,3 +305,4 @@ Lista* removefim(Lista* l)
 		return l;
 	}
 }
+

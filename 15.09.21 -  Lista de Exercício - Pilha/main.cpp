@@ -1,33 +1,43 @@
+//main.cpp
+
 #include "pilha.h"
 
-int main(int argc, char** argv) 
+int main(int argc, char** argv)
 {
 	Lista* l = inicializa();
-	
+
 	l = push(l, 5); 
+	fimprimi(l);
+
 	l = push(l, 3);
-	
-	pop(l);
+	fimprimi(l);
+
+	l = pop(l);
+	fimprimi(l);
 
 	l = push(l, 7); 
+	fimprimi(l);
 
-	pop(l);
-
-	top(l);
+	l = pop(l);
+	fimprimi(l);
 	
-	pop(l);
-
-	pop(l);
-
-	pop(l); //Error
+	top(l); //com erro
 	
-	//isempty(l); //True
+	l = pop(l);
+	
+	l = pop(l);
+	fimprimi(l);
+	
+	l = pop(l);
+	fimprimi(l); //erro
+		
+	l = isempty(l); //True
 	
 	l = push(l, 9); 
 	l = push(l, 7); 
 	l = push(l, 3); 
 	l = push(l, 5); 
-	imprime(l);
+	fimprimi(l);
 	
 	size(l);
 
@@ -43,8 +53,7 @@ int main(int argc, char** argv)
 	pop(l);
 	imprime(l);
 	
-	
-//	libera(l);
 	system("pause");
 	return 0;
 }
+

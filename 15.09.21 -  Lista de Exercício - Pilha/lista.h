@@ -1,4 +1,4 @@
-//Lista.h
+//lista.h
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
@@ -29,6 +29,4 @@ Lista* cria (int v);
 Lista* inserefim (Lista* l, int v); //9
 Lista* removeinicio(Lista* l); //10
 Lista* removefim(Lista* l); //11
-
-
 

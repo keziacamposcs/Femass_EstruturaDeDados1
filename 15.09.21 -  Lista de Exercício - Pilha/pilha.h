@@ -4,28 +4,24 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
-struct lista {
-	int info;
- 	struct lista* prox;
-};
-typedef struct lista Lista;
-
+#include "lista.h"
 
 
 Lista* inicializa ();
+void fimprimi (Lista* l);
 
-void imprime (Lista* l);
+/* --- */ 
 
-Lista* push (Lista* l, int i);
+Lista* push (Lista* l, int i); //lista.h
 
-Lista* pop (Lista* l);
+Lista* pop (Lista* l); //lista.h
 
-void size(Lista* l);
+void top (Lista* l);
 
-//int isempty(Lista* l);
+Lista* isempty (Lista* l);
+void isempty_informe (Lista* l);
 
-void top(Lista* l);
+void size (Lista* l);
 
-void libera (Lista* l);
+
 

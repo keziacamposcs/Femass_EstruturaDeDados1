@@ -1,7 +1,7 @@
-//Lista.h
-
+//lista.h
 #include <iostream>
 #include <stdlib.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -19,3 +19,13 @@ Lista* busca (Lista* l, int v);
 void busca_informe (Lista* l, int v);
 Lista* retira (Lista* l, int v);
 void libera (Lista* l);
+
+//continuacao
+void mostrainicio(Lista* l); //5
+void mostrafim(Lista* l); //6
+void tamanho (Lista* l); //7
+void ocorrencias(Lista* l, int v); //8
+Lista* cria (int v);
+Lista* inserefim (Lista* l, int v); //9
+Lista* removeinicio(Lista* l); //10
+Lista* removefim(Lista* l); //11

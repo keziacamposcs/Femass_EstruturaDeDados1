@@ -111,7 +111,6 @@ int main(int argc, char** argv)
 				scanf( "%d", &num);
 				
 				inserefim(l, num);
-				imprime(l);
 				
 				system("PAUSE");
 				break;
@@ -119,7 +118,6 @@ int main(int argc, char** argv)
 				
 			case 10:
 				l = removeinicio(l);
-				imprime(l);
 								
 				system("PAUSE");
 				break;				
@@ -127,7 +125,6 @@ int main(int argc, char** argv)
 
 			case 11:
 				l = removefim(l);
-				imprime(l);
 
 				system("PAUSE");
 				break;	

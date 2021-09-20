@@ -317,13 +317,17 @@ Lista* removefim(Lista* l)
 void imprime_recursiva (Lista* l)
 {
 	if (vazia(l))
-	return;
-	
+	{
+		return;
+	}
+	else
+	{
 	// imprime primeiro elemento
-	printf(“info: %d\n”,l->info);
+	printf("info: %d\n",l->info);
 	
 	// imprime sub-lista
 	imprime_recursiva(l->prox);
+	}
 }
 
 

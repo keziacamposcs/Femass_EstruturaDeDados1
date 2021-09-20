@@ -18,7 +18,11 @@ int menu()
 	printf("9 - Devera inserir um novo no-dado no fim da lista\n");
 	printf("10 - Remove no-dado no inicio da Lista\n");
 	printf("11 - Remove no-dado no fim da Lista\n");
-	printf("12 - Sair\n");
+	printf("12 - Imprime recursiva\n");
+	printf("13 - Retira recursiva\n");
+	printf("14 - Libera recursiva\n");
+
+	printf("15 - Sair\n");
 	
 	printf("Escolha umas das opcoes acima: ");
 	scanf("%d", &op);
@@ -117,10 +121,10 @@ int main(int argc, char** argv)
 				
 				
 			case 10:
-				l = retira_recursiva(l);
+				l = removeinicio(l);
 								
 				system("PAUSE");
-				break;				
+				break;					
 
 
 			case 11:

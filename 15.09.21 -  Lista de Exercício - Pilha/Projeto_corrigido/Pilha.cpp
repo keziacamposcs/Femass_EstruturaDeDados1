@@ -1,6 +1,6 @@
 //Pilha.cpp
 
-#include "pilha.h"
+#include "Pilha.h"
 
 
 /* funcao imprime: imprime valores dos elementos */
@@ -18,8 +18,6 @@ void fimprimi (Lista* l)
 
 
 
-
-
 /* --- */
 
 
@@ -34,18 +32,15 @@ Lista* push (Lista* l, int i)
 
 /*
 pop( ): Retira o objeto no topo da pilha e o retorna. 
-Ocorre um erro no caso da pilhaestiver vazia.
+Ocorre um erro no caso da pilha estiver vazia.
 */
 Lista* pop (Lista* l)
 {
 	Lista* p;
 
-	if(p != NULL){
-		l = removeinicio(l);
-	}
-	else
-		printf("\nerro\n");
+	l = removeinicio(l);
 }
+
 
 /*
 top( ): Retorna o objeto no topo da pilha, sem remove-lo.
@@ -53,14 +48,7 @@ Ocorre erro no caso da pilha estiver vazia.
 */
 Lista* top (Lista* l)
 {
-	Lista* p;
-
-	if(p != NULL)
-	{
-		mostrainicio(l);
-	}
-	else
-		printf("\nerro\n");
+	mostrainicio(l);
 }
 
 /*
@@ -70,21 +58,9 @@ positivo).
 
 Lista* isempty (Lista* l)
 {
-	bool vazia (l);
-}
+	Lista* p;
 
-
-void isempty_informe (Lista* l)
-{
-
-	if (!isempty(l))
-	{
-		printf("False");
-	}
-	else
-	{
-		printf("True");
-	}
+    return (p->prox == -1) ? true : false;
 }
 
 

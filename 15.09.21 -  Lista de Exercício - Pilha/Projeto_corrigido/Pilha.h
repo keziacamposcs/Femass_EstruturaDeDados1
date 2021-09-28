@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "Lista.h"
 
@@ -18,7 +19,5 @@ Lista* pop (Lista* l);
 Lista* top (Lista* l);
 
 Lista* isempty (Lista* l);
-
-void isempty_informe (Lista* l);
 
 void size (Lista* l);

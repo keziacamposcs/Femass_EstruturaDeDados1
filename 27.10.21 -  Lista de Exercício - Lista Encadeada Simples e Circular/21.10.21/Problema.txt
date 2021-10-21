@@ -1,0 +1,10 @@
+> Implemente melhorias para a biblioteca prototipada de Lista Encadeada Simples e Circular (ZIP publicado no AVA que manipula números inteiros, com referência do ponteiro de controle (L) para o fim da lista):
+
+- Melhore o menu para com o usuário permitindo que escolha pelo uso de todas as funções disponíveis da biblioteca;
+
+- Já foram implementadas as funções: inicializa(), vazia(), insere_inicio(), insere_fim(), imprime() e retira(). Além destes, desenvolva:
+
+busca_dado (verifica se um dado v está na lista), size (retorna número de nós-dado), remove_inicio (remove nó-dado inicial), remove_fim (remove nó-dado final), imprime_inicio (imprime info do primeiro nó-dado), imprime_fim(imprime último nó-dado), libera (desaloca todos os nós-dados e inicializa a lista).
+
+Obs.: Enviar pasta do projeto compactada (ZIP), com regras de compilação (makefile), sem arquivos executável e objetos.
+

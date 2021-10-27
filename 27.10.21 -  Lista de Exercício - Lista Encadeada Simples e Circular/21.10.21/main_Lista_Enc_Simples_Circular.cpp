@@ -83,7 +83,7 @@ int main(int argc, char** argv)
 			
 			//continuacao
 			case 5:
-				printf( "Digite um numero para verificar suas ocorrencias: ");
+				printf( "Digite um numero para verificar se esta na lista: ");
 				scanf( "%d", &num);
 				
 				busca_dado(l, num);

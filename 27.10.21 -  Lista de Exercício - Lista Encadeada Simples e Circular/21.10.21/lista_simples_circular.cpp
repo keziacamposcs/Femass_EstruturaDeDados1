@@ -14,13 +14,9 @@ bool vazia(Lista* l)
 	return l == NULL;
 }
 
-
-/*-------------------------------------------------------------------------*/
-
-//ok
 /*
  1- insercao no inicio: retorna a lista atualizada 
- */
+*/
 Lista* insere_inicio(Lista* l, int i)
 {
 	//l é ponteiro para último nó-dado, l->prox estará apontando para 1o nó-dado
@@ -45,8 +41,6 @@ Lista* insere_inicio(Lista* l, int i)
 	return l;	
 }
 
-
-//ok
 /*
 2 - insercao no fim: retorna a lista atualizada
 */
@@ -68,8 +62,6 @@ Lista* insere_fim(Lista* l, int i)
 	return novo;
 }
 
-
-//ok
 /*
 3 - funcao imprime: imprime valores dos elementos
 */
@@ -99,8 +91,6 @@ void imprime(Lista* l)
 	printf("Lista eh vazia!\n");
 }
 
-//revisar
-//problema termina o programa assim q realiza a remocao
 /*
 4 - funcao retira: retira elemento da lista 
 */
@@ -159,9 +149,8 @@ Lista* retira (Lista* l, int v)
 	return l;
 	free(p);
 }
+
 // Continuacao...
-
-
 
 /*
 5 - verifica se um dado v esta na lista
@@ -178,7 +167,7 @@ Lista* busca (Lista* l, int v)
  		}
  	}
  	
- 	return NULL; /* nao achou o elemento */
+ 	return NULL; // nao achou o elemento
 }
 
 void busca_dado (Lista* l, int v)
@@ -187,11 +176,13 @@ void busca_dado (Lista* l, int v)
 	{
 		printf("O valor %d esta na lista!", v);
 	}
+	else
+	{
 		printf("O valor %d nao esta na lista!", v);
+	}
 }
 
 
-//revisar
 /*
 6 - retorna tamanho dos no dado
 */
@@ -210,7 +201,6 @@ void size (Lista* l)
 }
 
 
-//ok
 /*
 7 - remove no-dado inicial
 */
@@ -239,53 +229,57 @@ Lista* remove_inicio (Lista* l)
 }
 
 
-//revisar
 /*
 8 - remove no-dado final
 */
 Lista* remove_fim (Lista* l)
 {
-	int aux;
-	Lista* p; /* ponteiro para percorrer a lista*/
-    
-	p = (Lista*) malloc(sizeof(Lista));
-	
+	Lista* aux = NULL;
+	Lista* p = l; /* ponteiro para percorrer a lista*/
+    	
 	if(p == NULL)
-		return NULL;
-	
-	p->info = aux;
-	
-	if(vazia(l))
 	{
-		l = p;
-		l->prox = l;
+	 	printf("A lista nao possui elementos para serem removidos.\n");
+		return NULL;
+	}
+	else if (p->prox == NULL)
+	{
+		return NULL;
+	}
+	else
+	{
+		while(p->prox != NULL)
+		{
+			aux = p;
+			p = p->prox;
+		}
+		
+		aux->prox = NULL;
 		return l;
 	}
-	
-	p->prox = l->prox;
-	l->prox = p;
-	free(p);
-
-	return p;
 }
 
-//
 /*
 9 - imprime primeiro dado da lista
 */
 void imprime_inicio (Lista* l)
 {
 	Lista* p = l; /* faz apontar para o no inicial */
-		
-	/* testa se lista nao e vazia */
-	if (p!= NULL)
+	
+	if(!vazia(l))
 	{
-		printf("\n No-dado no fim da lista: %d\n", p->info);
+		do
+		{
+			
+			p = p->prox; /* avanca para o proximo no */
+		
+		}while (p->prox != NULL);
 	}
+	
+	printf("\n No-dado inicio da lista: %d\n", p->info);
 }
 
 
-//ok
 /*
 10 - imprime ultimo no-dado
 */

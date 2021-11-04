@@ -16,13 +16,7 @@ Lista* inicializa();
 
 bool vazia(Lista* l);
 
-Lista* insere_ordenado(Lista* l, int v);
-
-void imprime(Lista* l);
-
-Lista* remove_inicio(Lista* l);
-
-Lista* remove_fim(Lista* l)
+Lista* insere_inicio(Lista* l, int v);
 
 
 /*
@@ -49,5 +43,4 @@ void imprime_inicio (Lista* l);
 void imprime_fim (Lista* l);
 
 void libera (Lista* l);
-*/
 

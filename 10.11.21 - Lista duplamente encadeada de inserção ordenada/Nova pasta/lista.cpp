@@ -2,109 +2,38 @@
 #include "lista.h"
 
 
-/* funcao de inicializacao: retorna uma lista vazia */
+/* função de inicialização: retorna uma lista vazia */
 Lista* inicializa()
 { 
 	return NULL;
 }
 
-/* verifica se lista esta vazia: true caso positivo */
+
+ /*verifica se lista está vazia: true caso positivo */
 bool vazia(Lista* l)
 {
 	return l == NULL;
 }
 
+
 /*
-1- insercao no inicio: retorna a lista atualizada 
+ 1- insercao no inicio: retorna a lista atualizada 
 */
-Lista* insere_ordenado (Lista* l, int v)
+Lista* insere (Lista* l, int v)
 {
+	
 	Lista* novo = (Lista*) malloc(sizeof(Lista));
-	Lista* aux = (Lista*) malloc(sizeof(Lista));
-
+ 
 	novo->info = v;
-	novo->prox = l;
+ 	novo->prox = l;
 	novo->ant = NULL;
-}
-
-/*
-2 - funcao imprime: imprime valores dos elementos
-*/
-void imprime(Lista* l)
-{
-	if (!vazia(l))
-	{
-		Lista* p = l->prox; 
-	 	printf("Info: ");
-		do
-		{ 
-			printf("%d - ", p->info);	
-			p = p->prox;	
-		}while(p !=l->prox);
-		 
-		printf("\n"); 
-	}
-	else
-	printf("Lista eh vazia!\n");
-}
-
-/*
-3 - Remove inicio 
-*/
-Lista* remove_inicio (Lista* l)
-{
-	Lista* p; /* ponteiro para percorrer a lista*/
+ 
+	/* verifica se lista não está vazia */
+	if (l != NULL)
+	l->ant = novo;
+	return novo;
 	
-	if(l == NULL)
-	{
-		printf("\nA lista nao possui elementos para serem removidos.\n");
-		return NULL;
-	}
-	
-	p = l->prox;
-	if(p->prox == p)
-	{
-		l = NULL;
-		free(p);
-		return l;
-	}
-	
-	l->prox = p->prox;
-	free(p);
-
-	return l;
 }
-
-/*
-4 - Remove no-dado final
-*/
-Lista* remove_fim (Lista* l)
-{
-	Lista* aux = NULL;
-	Lista* p = l; /* ponteiro para percorrer a lista*/
-    	
-	if(p == NULL)
-	{
-	 	printf("A lista nao possui elementos para serem removidos.\n");
-		return NULL;
-	}
-	else if (p->prox == NULL)
-	{
-		return NULL;
-	}
-	else
-	{
-		while(p->prox != NULL)
-		{
-			aux = p;
-			p = p->prox;
-		}
-		
-		aux->prox = NULL;
-		return l;
-	}
-}
-
 
 
 /************************************************************************************/
@@ -114,11 +43,11 @@ Lista* remove_fim (Lista* l)
 */
 Lista* insere_fim(Lista* l, int i)
 {
-	//se for 1a inser??o... delega para insere_inicio
+	//se for 1a inserção... delega para insere_inicio
 	if (vazia(l)) 
 		return insere_inicio(l, i);
 	
-	//sen?o... faz-se o ltimo virar pen?ltimo...
+	//senão... faz-se o último virar penúltimo...
     Lista* novo = (Lista*) malloc(sizeof(Lista));
     
 	novo->info = i;
@@ -137,12 +66,12 @@ void imprime(Lista* l)
 {
 	if (!vazia(l))
 	{
-		/* vari?vel auxiliar aponta para n? inicial */
+		/* variável auxiliar aponta para nó inicial */
 		Lista* p = l->prox; 
 	 	printf("Info: ");
 	 	
 	 	/*
-		garantir a travessia da lista mesmo no caso de ?nico n?, partindo
+		garantir a travessia da lista mesmo no caso de único nó, partindo
 		do inicial e usando-o tb para teste final
 		*/
 		do
@@ -384,5 +313,4 @@ void libera (Lista* l)
 	}	
 	
 }
-
 

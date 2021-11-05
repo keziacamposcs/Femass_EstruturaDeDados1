@@ -22,32 +22,12 @@ void imprime(Lista* l);
 
 Lista* remove_inicio(Lista* l);
 
-Lista* remove_fim(Lista* l)
+Lista* remove_fim(Lista* l);
 
+Lista* remove_elemento(Lista* l);
 
-/*
-Lista* insere_fim(Lista* l, int i);
+void imprime_inicio_fim(l);
 
-void imprime(Lista* l);
+void imprime_fim_inicio(l);
 
-Lista* retira(Lista* l, int v);
-
-
-
-Lista* busca (Lista* l, int v);
-
-void busca_dado (Lista* l, int v);
-
-void size (Lista* l);
-
-Lista* remove_inicio (Lista* l);
-
-Lista* remove_fim (Lista* l);
-
-void imprime_inicio (Lista* l);
-
-void imprime_fim (Lista* l);
-
-void libera (Lista* l);
-*/
-
+Lista* busca_elemento(Lista* l, num);

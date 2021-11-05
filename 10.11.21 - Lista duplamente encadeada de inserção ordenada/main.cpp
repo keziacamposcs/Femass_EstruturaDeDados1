@@ -55,8 +55,7 @@ int main(int argc, char** argv)
 	
 				system("PAUSE");
 				break;	
-				
-				
+						
 			case 4:
 				l = remove_fim(l);
 								
@@ -64,7 +63,10 @@ int main(int argc, char** argv)
 				break;
 				
 			case 5:
-				l = remove_elemento(l);
+				printf( "Digite um numero para remover: ");
+				scanf( "%d", &v );
+				
+				l = remove_elemento(l, v);
 				
 				system("PAUSE");
 				break;
@@ -89,78 +91,6 @@ int main(int argc, char** argv)
 				
 				system("PAUSE");
 				break;								
-/*
-			case 2:
-				printf( "Numero para inserir no fim: ");
-				scanf( "%d", &i );
-			
-				l = insere_fim(l, i);
-				
-				system("PAUSE");
-				break;
-				
-
-				
-			case 4:
-				imprime(l);				
-				
-				printf( "Numero para retirar na lista: ");
-				scanf( "%d", &num );
-				
-				l = retira(l, num);
-				imprime(l);
-
-				system("PAUSE");
-				break;
-			
-			
-			case 5:
-				printf( "Digite um numero para verificar se esta na lista: ");
-				scanf( "%d", &num);
-				
-				busca_dado(l, num);
-
-				system("PAUSE");
-				break;	
-			
-			
-			case 6:
-				size(l);
-				
-				system("PAUSE");
-				break;
-				
-				
-			case 7:
-				l = remove_inicio(l);
-	
-				system("PAUSE");
-				break;	
-				
-				
-			case 8:
-				l = remove_fim(l);
-								
-				system("PAUSE");
-				break;		
-				
-
-				
-			case 10:
-				imprime_fim(l);
-				system("PAUSE");
-				break;
-				
-			case 11:
-				libera(l); 
-				system("PAUSE");
-				break;				
-				
-			case 12:
-				printf("Saindo  do programa...\n");
-				system("PAUSE");
-				break;
-*/			
 				
 			default:
 				system("cls");
@@ -168,9 +98,7 @@ int main(int argc, char** argv)
 				system("PAUSE");
 		}
 	}
-	
-	while(op != 12);
+	while(op != 9);
 	return 0;
-	
 }
 

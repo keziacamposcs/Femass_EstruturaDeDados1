@@ -1,5 +1,6 @@
 //lista.cpp
 #include "lista.h"
+#include <time.h>
 
 /* funcao de inicializacao: retorna uma lista vazia */
 Lista* inicializa()
@@ -14,89 +15,89 @@ bool vazia(Lista* l)
 }
 
 /*
-1- insercao no inicio: retorna a lista atualizada 
+1- insercao no inicio: retorna a lista atualizada ( + - )
 */
 Lista* insere_ordenado (Lista* l, int v)
 {
-	Lista* novo = (Lista*) malloc(sizeof(Lista));
+	//auxiliar
 	Lista* aux = (Lista*) malloc(sizeof(Lista));
-
-	novo->info = v;
-	novo->prox = l;
-	novo->ant = NULL;
-}
-
-
-
-
-
-struct Lista *insere(struct listaSimples *ini,int valor){
-
-    struct listaSimples *aux = (struct listaSimples *)malloc(sizeof(struct listaSimples));
-    aux->valor = valor;
+		
+	l->info = v;
     aux->prox = NULL;
     aux->ant = NULL;
-
-    if(ini==NULL)ini = aux; /// caso o ponteiro ini seja nulo entra aqui
-    else{
-
-        struct listaSimples *ultimo = ini;
-        int flag= 0;
-
-        if(ultimo->prox==NULL){ /// condição de único bloco
-
-            if(aux->valor > ultimo->valor){
-
-                ultimo->prox = aux;
-                aux->ant = ultimo;
-            }else{
-
-                aux->prox = ultimo;
-                ultimo->ant = aux;
-                ini = aux;
+    
+    //se a lista for nula
+	if(l==NULL)
+	{
+		l = aux;
+		return l;
+	}
+	//se nao for nula
+	else
+	{
+		Lista* ult = l;
+		int flag = 0;
+		
+		if(ult->prox==NULL)
+		{
+			// se o novo numero for maior que o ultimo....
+			if(aux->info	>	ult->info)
+			{
+				ult->prox = aux;
+				aux -> ant = ult;
+				l = ult;
+			}
+			else
+			{
+				aux->prox = ult;
+				ult->ant = aux;
+				l = aux;
+			}
+		}
+		else
+		{
+			//se o novo numero for menor que o ultimo OU igual ao ultimo....
+			if(aux->info < ult->info || aux->info == ult->info)
+			{
+                aux->prox = ult;
+                ult->ant = aux;
+                l = aux;
             }
-        }else{
-            /// no caso de ser menor que o primeiro ou igual o bloco novo que chegar entra aqui
-            if(aux->valor < ultimo->valor || aux->valor==ultimo->valor){
-                aux->prox = ultimo;
-                ultimo->ant = aux;
-                ini = aux;
-            }else{
-                    /// caso o bloco esteja no meio aqui será deslocado para a posição certa
-                    while(ultimo->prox!=NULL){
-                        if(aux->valor > ultimo->valor &&
-                           aux->valor < ultimo->prox->valor){ /// desloca blocos do meio para encaixar o bloco na posição certa
-                                flag=1;
-                                aux->ant = ultimo;
-                                aux->prox = ultimo->prox;
-                                ultimo->prox->ant = aux;
-                                ultimo->prox = aux;
-                                break;
-                           }else{
-
-                                if(aux->valor==ultimo->valor){ /// Se tiver bloco com valores no meio igual entra aqui pra encaixar na posição certa
-                                    flag=1;
-                                    aux->prox = ultimo->prox;
-                                    aux->ant = ultimo;
-
-                                    ultimo->prox->ant = aux;
-                                    ultimo->prox = aux;
-
-                                    break;
-                                }
-                           }
-
-                           ultimo = ultimo->prox;
-                        }
-
-                    if(flag==0){ /// aqui é só pra valores que vão pro final mesmo da lista
-                        ultimo->prox = aux;
-                        aux->ant = ultimo;
+			else
+			{
+                while(ult->prox!=NULL)
+				{
+                    if(aux->info > ult->info && aux->info < ult->prox->info)
+					{
+                        flag=1;
+                        aux->ant = ult;
+                        aux->prox = ult->prox;
+                        ult->prox->ant = aux;
+                        ult->prox = aux;
                     }
-                }
-            }
-        }
-    return ini;
+					else
+					{
+						if(aux->info	==	ult->info)
+						{
+                            flag=1;
+                            aux->prox = ult->prox;
+                            aux->ant = ult;
+
+                            ult->prox->ant = aux;
+                            ult->prox = aux;
+
+                        }
+					}
+					ult = ult->prox;	
+				}
+				if(flag==0)
+				{
+	            	ult->prox = aux;
+	                aux->ant = ult;
+	        	}
+	    	}
+		}
+	}
 }
 
 /*
@@ -106,18 +107,15 @@ void imprime(Lista* l)
 {
 	if (!vazia(l))
 	{
-		Lista* p = l->prox; 
-	 	printf("Info: ");
-		do
-		{ 
-			printf("%d - ", p->info);	
-			p = p->prox;	
-		}while(p !=l->prox);
-		 
-		printf("\n"); 
+		Lista* p;
+	
+		for(p = l; p!= NULL; p = p->prox)
+		{
+			printf(" %d -", p->info);
+		}
 	}
 	else
-	printf("Lista eh vazia!\n");
+		printf("Lista eh vazia!\n");
 }
 
 /*
@@ -178,47 +176,71 @@ Lista* remove_fim (Lista* l)
 }
 
 /*
-5 - Remove elemento			(ok)
+5 - Remove elemento
 */
-
-//função busca: busca um elemento na lista
-Lista* busca (Lista* l, int v){
-	if (!vazia(l)){
-	 	for (Lista* p=l; p!=NULL; p=p->prox)
-	 		if (p->info == v)
-	 			return p;
-	}
- 	return NULL;
-}
-
-//função Remove elemento
 Lista* remove_elemento (Lista* l, int v) 
 {
- 	Lista* p = busca(l,v);
+	Lista* ant = NULL; /* ponteiro para elemento anterior */
+	
+	Lista* p = l->prox; /* ponteiro para percorrer a lista*/
+	
+	if(vazia(l))
+	{
+		printf("Lista vazia!\n");
+		return l;
+	}
  	
- 	//1- Testa se achou
-	if (p == NULL)
- 		return l;
+	 /* procura elemento na lista, guardando anterior */
+	do
+	{
+		 //garantir a travessia da lista mesmo no caso de unico no, partindo do inicial e usando-o tb para teste final
+		if (p->info == v)
+			break;	
+		ant = p;
+		p = p->prox;	
+			
+	}while(p != l->prox); 
+	
+	
+ 	/* verifica se achou elemento */
+ 	if (ant != NULL && p == l->prox)
+ 	{
+ 		return l; /* nao achou: retorna lista original */
+	}
  	
-	//2- Testa casos de encontrar!
- 	if (l == p)
- 		l = p->prox;
- 	else
- 		p->ant->prox = p->prox;
- 		
- 	if (p->prox != NULL)
- 		p->prox->ant = p->ant;
- 	
+	 //verifica se ha apenas 1 no-dado
+ 	if (p == p->prox)
+	{ 
+ 		free(p);
+ 		return NULL;
+	}
+
+	//achou no-dado numa lista com 2 ou mais elementos 
+	if (ant == NULL && p == l->prox)
+	{ 
+		//primeiro no-dado em p
+		l->prox = p->prox; //ultimo aponta para segundo
+		return l;
+	}
+	//senao, eh no intermediario para final
+	ant->prox = p->prox;
+	
+	if (p == l)
+	{
+		//se p aponta para o ultimo no-dado
+		l = ant;
+	}
+	return l;
 	free(p);
- 	
- 	return l;
 }
+
 
 
 /*
-6 - Imprimi elemento início -  fim		(ok)
+6 - Imprimi elemento inicio -  fim
 */
-void imprimir_inicio_fim (Lista* l)
+
+void imprime_inicio_fim (Lista* l)
 {
 	if (!vazia(l))
 	{
@@ -234,14 +256,31 @@ void imprimir_inicio_fim (Lista* l)
 }
 
 /*
-7 - Imprimi elemento fim - início
+7 - Imprimi elemento fim - inicio
 */
-void imprimir_fim_inicio (Lista* l)
+void imprime_fim_inicio (Lista* l)
 {
-
-
-
-
+	if(l!=NULL)
+	{
+		Lista* aux = l;
+		
+		if(aux!=NULL)
+		{
+			while(aux->prox!=NULL)
+			{
+				aux = aux->prox;
+			}
+			while(aux!=NULL)
+			{
+				printf("%d - ", aux->info);
+				aux = aux->ant;
+			}
+		}
+		else
+		{
+			printf("Lista vazia...");
+		}
+	}
 }
 
 

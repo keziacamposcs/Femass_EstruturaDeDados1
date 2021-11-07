@@ -12,22 +12,25 @@ struct lista {
 
 typedef struct lista Lista;
 
-Lista* inicializa();
+Lista* inicializa(); //ok
 
-bool vazia(Lista* l);
+bool vazia(Lista* l); //ok
 
 Lista* insere_ordenado(Lista* l, int v);
 
-void imprime(Lista* l);
+void imprime(Lista* l); //ok
 
 Lista* remove_inicio(Lista* l);
 
-Lista* remove_fim(Lista* l);
+Lista* remove_fim(Lista* l); //ok
 
-Lista* remove_elemento(Lista* l);
+Lista* remove_elemento(Lista* l, int v); //ok
 
-void imprime_inicio_fim(l);
+void imprime_inicio_fim(Lista* l); //ok
 
-void imprime_fim_inicio(l);
+void imprime_fim_inicio(Lista* l); //ok
 
-Lista* busca_elemento(Lista* l, num);
+Lista* busca (Lista* l, int v); //ok
+
+void busca_elemento (Lista* l, int v); //ok
+

@@ -1,0 +1,10 @@
+Implemente uma biblioteca de lista duplamente encadeada que mantenha dados ordenados; logo, contendo os seguintes métodos/funções:
+- Inicializar(); Insere_ordenado(x); Remove_inicio(); Remove_fim(); Remove_elemento(x); Imprime_inicio_fim; Imprime_fim_inicio; Busca_elemento(x).
+
+Obs. gerais: 
+
+> Considere que a referência L de controle da lista aponta ao primeiro nó-dado.
+
+> Deve-se ter um "main" com menu para o usuário de modo a permitir o uso dos métodos/funções da biblioteca. 
+
+> Enviar pasta do projeto compactada (ZIP), com regras de compilação (makefile), sem arquivos executável e objetos.

@@ -14,51 +14,53 @@ bool vazia(Lista* l)
 	return l == NULL;
 }
 
+
+/********************************************************/
+
 /*
 1- insercao no inicio: retorna a lista atualizada 
 */
 
-Lista* insere_ordenado(Lista* l, int v) 
+Lista* insere_inicio(Lista* l, int v) 
 {
 	Lista* novo = (Lista*) malloc(sizeof(Lista));
-	Lista* aux = l;
+	
+	novo->info = v;
+	novo->prox = prim;
+	
+	
+	novo->prox = l;
+	novo->ant = NULL;
+	
+	/* verifica se lista não está vazia */
+	if (l != NULL)
+	{
+		l->ant = novo;
+	}
+	return novo;
+}
+
+/*
+2- insercao no fim: retorna a lista atualizada 
+*/
+
+Lista* insere_fim (Lista* l, int v) 
+{
+	Lista* novo = (Lista*) malloc(sizeof(Lista));
+	
+	Lista* ult = l;
 	
 	novo->info = v;
 	
-	if(aux->info > v)
-	{
-	    novo->info = v;
- 		novo->prox = l;
- 		novo->ant = NULL;
-		 		
-		return novo;
+	novo->prox = NULL;
 	
-		while(aux!=NULL)
-		{
-			if (aux->info >= v)
-		    {
-		        novo->prox = aux;
-		        novo->ant = aux->ant;
-		        aux->ant->prox = novo;
-		        
-		        return novo;
-		    }
-			 else if (aux->prox==NULL)
-			{
-			    aux->prox = novo;
-			    novo->ant = aux;
-			    novo->prox = NULL;
-			    
-			    return novo;
-			}
-			aux = aux->prox;
-		}
-		return novo;
-		}
-
+	if(l==NULL)
+	{
+		l->ant = NULL;
+		l = l
+	}
 
 }
-
 
 
 /*
@@ -139,7 +141,7 @@ Lista* remove_fim (Lista* l)
 /*
 5 - Remove elemento
 */
-Lista* remove_elemento (Lista* l, int v) 
+Lista* remove_valor (Lista* l, int v) 
 {
 	Lista* ant = NULL; /* ponteiro para elemento anterior */
 	
@@ -201,7 +203,7 @@ Lista* remove_elemento (Lista* l, int v)
 6 - Imprimi elemento inicio -  fim
 */
 
-void imprime_inicio_fim (Lista* l)
+void imprime_frente_fim (Lista* l)
 {
 	if (!vazia(l))
 	{
@@ -219,7 +221,7 @@ void imprime_inicio_fim (Lista* l)
 /*
 7 - Imprimi elemento fim - inicio
 */
-void imprime_fim_inicio (Lista* l)
+void imprime_reverso (Lista* l)
 {
 	if(l!=NULL)
 	{
@@ -274,3 +276,4 @@ void busca_elemento (Lista* l, int v)
 		printf("O valor %d nao esta na lista!", v);
 	}
 }
+

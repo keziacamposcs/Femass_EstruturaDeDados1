@@ -40,57 +40,67 @@ int main(int argc, char** argv)
 				printf( "Numero para inserir no inicio: ");
 				scanf( "%d", &v );
 				
-				l = insere_ordenado(l, v);
+				l = insere_inicio(l, v);
 				
 				system("PAUSE");
 				break;
 
 			case 2:
+				printf( "Numero para inserir no fim: ");
+				scanf( "%d", &v );
+				
+				l = insere_fim(l, v);
+				
+				system("PAUSE");
+				break;
+				
+			case 3:
 				imprime(l); 
 				printf("\n");
 				
 				system("PAUSE");
 				break;		
 
-			case 3:
+			case 4:
 				l = remove_inicio(l);
 	
 				system("PAUSE");
 				break;	
 						
-			case 4:
+			case 5:
 				l = remove_fim(l);
 								
 				system("PAUSE");
 				break;
 				
-			case 5:
+			case 6:
 				printf( "Digite um numero para remover: ");
 				scanf( "%d", &v );
 				
-				l = remove_elemento(l, v);
-				
-				system("PAUSE");
-				break;
-				
-			case 6:
-				imprime_inicio_fim(l);
+				l = remove_valor(l, v);
 				
 				system("PAUSE");
 				break;
 				
 			case 7:
-				imprime_fim_inicio(l);
+				imprime_frente_fim(l);
 				
 				system("PAUSE");
 				break;
 				
 			case 8:
+				imprime_reverso(l);
+				
+				system("PAUSE");
+				break;
+				
+			case 9:
 				printf( "Digite um numero para verificar se esta na lista: ");
 				scanf( "%d", &num);
 				
 				busca_elemento(l, num);
 				
+				printf("/n");
 				system("PAUSE");
 				break;								
 				
@@ -100,7 +110,7 @@ int main(int argc, char** argv)
 				system("PAUSE");
 		}
 	}
-	while(op != 9);
+	while(op != 10);
 	return 0;
 }
 

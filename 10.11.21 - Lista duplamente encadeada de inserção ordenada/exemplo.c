@@ -275,4 +275,132 @@ Lista* insere_ordenado(Lista* l, int v)
 	}
 	return l;
 }
-                    
+ 
+ 
+ /*************************************************************************/
+ 
+ Lista* insere_ordenado(Lista* l, int v) 
+{
+	Lista* p; //pecorrer
+	
+  	Lista* novo = (Lista*) malloc(sizeof(Lista));
+ 	novo->info = v;
+ 	
+    // if list is empty 
+    if (l == NULL) 
+        l = novo; 
+  
+    else if (l->info >= novo->info)
+	{ 
+        novo->prox = *head_ref; 
+        novo->prox->ant = novo; 
+        l = v; 
+    } 
+  
+    else { 
+        current = *head_ref; 
+  
+        // locate the node after which the new node 
+        // is to be inserted 
+        while (current->next != NULL &&  
+               current->next->data < newNode->data) 
+            current = current->next; 
+  
+        /* Make the appropriate links */
+        newNode->next = current->next; 
+  
+        // if the new node is not inserted 
+        // at the end of the list 
+        if (current->next != NULL) 
+            newNode->next->prev = newNode; 
+  
+        current->next = newNode; 
+        newNode->prev = current; 
+    } 
+}
+
+/*******************************************/
+
+	Lista* novo = cria(v); /* cria novo nó */
+ 	Lista* ant = NULL; /* ponteiro para elemento anterior */
+ 	Lista* p = l; /* ponteiro para percorrer a lista*/
+	
+	/* procura posição de inserção */
+	while (p != NULL && p->info < v)
+	{
+		ant = p;
+		p = p->prox;
+	}
+	
+	/* insere elemento */
+	if (ant == NULL)
+	{
+		/* insere elemento no início */
+		novo->prox = l;
+		l = novo;
+	}
+	else
+	{
+		/* insere elemento no meio da lista */
+		novo->prox = ant->prox;
+		ant->prox = novo;
+	}
+	return l;
+	
+	
+	
+	
+	
+	
+/******************************************************/
+Lista* insere_ordenado(Lista* l, int v) 
+{
+	Lista* novo = cria(v); /* cria novo nó */
+ 	Lista* ant = NULL; /* ponteiro para elemento anterior */
+ 	
+	Lista* p = l; /* ponteiro para percorrer a lista*/
+	
+	if(l->info)
+	{
+		novo->prox = novo;
+		novo->ant = novo;
+	}
+	else
+	{
+		novo = l->
+	}	
+}
+
+
+/*****************************************************************/
+
+
+Lista* insere_ordenado(Lista* l) 
+{
+    Lista *novo =(Lista*) malloc(sizeof(Lista));
+
+    printf("Digite o numero a ser inserido no inicio da lista: ");
+    scanf("%d",&novo->num);
+    
+    if(l->inicio == NULL)
+	{
+        l->inicio = novo; 
+        l->fim = novo;
+        
+
+        novo->prox = NULL;
+        novo->ant = NULL;
+    }
+	else
+	{
+        novo->prox =  l->inicio;
+        
+        l->inicio->ant = novo;
+        
+        novo->ant = NULL;
+        
+        l->inicio = novo;  
+    }
+	
+}
+	

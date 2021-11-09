@@ -16,9 +16,7 @@ Lista* inicializa(); //ok
 
 bool vazia(Lista* l); //ok
 
-Lista* insere(int v); 
-
-Lista* insere_inicio (Lista* l, int v);
+Lista* insere_inicio (Lista* l, int v); //ok
 
 Lista* insere_fim (Lista* l, int v);
 

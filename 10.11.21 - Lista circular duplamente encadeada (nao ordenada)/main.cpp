@@ -5,14 +5,14 @@ int menu()
 	system("cls");
 	int op;
 	printf("***Menu***\n");
-	printf("1 - Insere ordenado;\n");
-	printf("2 - Imprime valores dos elementos;\n");
-	printf("3 - Remove dado inicial;\n");
-	printf("4 - Remove dado fim;\n");
-	printf("5 - Remove elemento desejado da lista\n");
-	printf("6 - Imprimi inicio-fim da Lista\n");
-	printf("7 - Imprimi fim-inicio da Lista\n");
-	printf("8 - Busca elemento na lista;\n");
+	printf("1 - Insere inicio;\n");
+	printf("2 - Insere fim;\n");
+	printf("3 - Imprime valores dos elementos;\n");
+	printf("4 - Remove dado inicial;\n");
+	printf("5 - Remove dado fim;\n");
+	printf("6 - Remove elemento desejado da lista\n");
+	printf("7 - Imprimi frente-fim da Lista\n");
+	printf("8 - Imprimi reverso da Lista\n");
 	printf("9 - Sair\n");
 	printf("Escolha umas das opcoes acima: ");
 	scanf("%d", &op);
@@ -93,16 +93,7 @@ int main(int argc, char** argv)
 				
 				system("PAUSE");
 				break;
-				
-			case 9:
-				printf( "Digite um numero para verificar se esta na lista: ");
-				scanf( "%d", &num);
-				
-				busca_elemento(l, num);
-				
-				printf("/n");
-				system("PAUSE");
-				break;								
+											
 				
 			default:
 				system("cls");
@@ -110,7 +101,7 @@ int main(int argc, char** argv)
 				system("PAUSE");
 		}
 	}
-	while(op != 10);
+	while(op != 9);
 	return 0;
 }
 

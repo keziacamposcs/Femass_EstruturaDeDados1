@@ -45,17 +45,50 @@ Lista* insere_fim (Lista* l, int v)
 {
 	Lista* novo = (Lista*) malloc(sizeof(Lista));
 	
-	novo->info = v;
-	novo->prox = l;
-	novo->ant = NULL;
+	Lista* aux = NULL; //auxiliar
 	
-	/* verifica se lista não está vazia */
-	if (l != NULL)
+	novo->info = v;
+	
+	novo->prox = NULL;	
+	
+	if(!vazia(l))
+	{
+		novo->ant = l;
+		l = novo;
+	}
+	else
+	{
+		aux = l;
+		while(aux->prox != NULL)
+		{
+			aux = aux->prox;
+		}
+		aux->prox = novo;
+		novo->ant = aux;
+	}
+	return l;
+		
+	/*
+    Lista* novo = (Lista*) malloc(sizeof(Lista));
+    
+    novo->prox = NULL;
+    
+    if (!vazia(l))
 	{
 		l->prox = novo;
 	}
-	return novo;
-
+	else
+	{
+		Lista* aux = l->prox;
+		
+		while(aux->prox != NULL)
+		{
+			aux = aux->prox;
+		}
+		
+		aux->prox = novo;		
+	}
+	*/
 }
 
 
@@ -109,7 +142,29 @@ Lista* remove_inicio (Lista* l)
 */
 Lista* remove_fim (Lista* l)
 {
-
+	Lista* aux = NULL;
+	Lista* p = l; /* ponteiro para percorrer a lista*/
+    	
+	if(p == NULL)
+	{
+	 	printf("A lista nao possui elementos para serem removidos.\n");
+		return NULL;
+	}
+	else if (p->prox == NULL)
+	{
+		return NULL;
+	}
+	else
+	{
+		while(p->prox != NULL)
+		{
+			aux = p;
+			p = p->prox;
+		}
+		
+		aux->prox = NULL;
+		return l;
+	}
 }
 
 /*
@@ -117,7 +172,58 @@ Lista* remove_fim (Lista* l)
 */
 Lista* remove_valor (Lista* l, int v) 
 {
+	Lista* ant = NULL; /* ponteiro para elemento anterior */
+	
+	Lista* p = l->prox; /* ponteiro para percorrer a lista*/
+	
+	if(vazia(l))
+	{
+		printf("Lista vazia!\n");
+		return l;
+	}
+ 	
+	 /* procura elemento na lista, guardando anterior */
+	do
+	{
+		 //garantir a travessia da lista mesmo no caso de unico no, partindo do inicial e usando-o tb para teste final
+		if (p->info == v)
+			break;	
+		ant = p;
+		p = p->prox;	
+			
+	}while(p != l->prox); 
+	
+	
+ 	/* verifica se achou elemento */
+ 	if (ant != NULL && p == l->prox)
+ 	{
+ 		return l; /* nao achou: retorna lista original */
+	}
+ 	
+	 //verifica se ha apenas 1 no-dado
+ 	if (p == p->prox)
+	{ 
+ 		free(p);
+ 		return NULL;
+	}
 
+	//achou no-dado numa lista com 2 ou mais elementos 
+	if (ant == NULL && p == l->prox)
+	{ 
+		//primeiro no-dado em p
+		l->prox = p->prox; //ultimo aponta para segundo
+		return l;
+	}
+	//senao, eh no intermediario para final
+	ant->prox = p->prox;
+	
+	if (p == l)
+	{
+		//se p aponta para o ultimo no-dado
+		l = ant;
+	}
+	return l;
+	free(p);
 }
 
 
@@ -128,7 +234,17 @@ Lista* remove_valor (Lista* l, int v)
 
 void imprime_frente_fim (Lista* l)
 {
-
+	if (!vazia(l))
+	{
+		printf("Info: ");
+		
+		for(Lista* p=l; p!=NULL; p=p->prox)
+		{
+			printf("-%d", p->info);
+		}
+	}
+	else
+		printf("Lista eh vazia!");
 }
 
 /*
@@ -136,7 +252,17 @@ void imprime_frente_fim (Lista* l)
 */
 void imprime_reverso (Lista* l)
 {
-
+	if (!vazia(l))
+	{
+		printf("Info: ");
+		
+		for(Lista* p=l; p!=NULL; p=p->prox)
+		{
+			printf("-%d", p->prox);
+		}
+	}
+	else
+		printf("Lista eh vazia!");	
 }
 
 

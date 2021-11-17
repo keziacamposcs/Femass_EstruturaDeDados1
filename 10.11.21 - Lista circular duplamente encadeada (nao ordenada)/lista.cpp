@@ -14,51 +14,86 @@ bool vazia(Lista* l)
 	return l == NULL;
 }
 
-Lista* cria (int v)
-{
- Lista* p = (Lista*) malloc(sizeof(Lista));
- p->info = v;
- return p;
-}
 
-/*	-------------------------------------------	*/
+/********************************************************/
 
 /*
 1- insercao no inicio: retorna a lista atualizada 
 */
-Lista* insere_ordenado (Lista* l, int v)
+
+Lista* insere_inicio(Lista* l, int v) 
 {
-	Lista* novo = cria(v); /* cria novo nó */
-	Lista* ant = NULL; /* ponteiro para elemento anterior */
-	Lista* p = l; /* ponteiro para percorrer a lista*/
+	Lista* novo = (Lista*) malloc(sizeof(Lista));
 	
-	/* procura posição de inserção */
-	while (p != NULL && p->info < v)
+	novo->info = v;
+	novo->prox = l;
+	novo->ant = NULL;
+	
+	/* verifica se lista não está vazia */
+	if (l != NULL)
 	{
-		ant = p;
-	 	p = p->prox;
+		l->ant = novo;
 	}
-	 
-	/* insere elemento */
-	if (ant == NULL)
-	{ 
-	 	/* insere elemento no início */
-	 	novo->prox = l;
-	 	l = novo;
+	return novo;
+}
+
+/*
+2- insercao no fim: retorna a lista atualizada 
+*/
+
+Lista* insere_fim (Lista* l, int v) 
+{
+	Lista* novo = (Lista*) malloc(sizeof(Lista));
+	
+	Lista* aux = NULL; //auxiliar
+	
+	novo->info = v;
+	
+	novo->prox = NULL;	
+	
+	if(!vazia(l))
+	{
+		novo->ant = l;
+		l = novo;
 	}
 	else
-	{ 
-	 	/* insere elemento no meio da lista */
-	 	novo->prox = ant->prox;
-	 	ant->prox = novo;
+	{
+		aux = l;
+		while(aux->prox != NULL)
+		{
+			aux = aux->prox;
+		}
+		aux->prox = novo;
+		novo->ant = aux;
 	}
-	
 	return l;
+		
+	/*
+    Lista* novo = (Lista*) malloc(sizeof(Lista));
+    
+    novo->prox = NULL;
+    
+    if (!vazia(l))
+	{
+		l->prox = novo;
+	}
+	else
+	{
+		Lista* aux = l->prox;
+		
+		while(aux->prox != NULL)
+		{
+			aux = aux->prox;
+		}
+		
+		aux->prox = novo;		
+	}
+	*/
 }
 
 
 /*
-2 - funcao imprime: imprime valores dos elementos
+3 - funcao imprime: imprime valores dos elementos
 */
 void imprime(Lista* l)
 {
@@ -84,16 +119,22 @@ Lista* remove_inicio (Lista* l)
 	
 	if(l == NULL)
 	{
-		printf("A lista nao possui elementos para serem removidos.\n");
+		printf("\nA lista nao possui elementos para serem removidos.\n");
 		return NULL;
 	}
-	else
+	
+	p = l->prox;
+	if(p->prox == p)
 	{
-		p = l;
-		l = l->prox;
+		l = NULL;
+		free(p);
 		return l;
 	}
+	
+	l->prox = p->prox;
+	free(p);
 
+	return l;	
 }
 
 /*
@@ -129,7 +170,7 @@ Lista* remove_fim (Lista* l)
 /*
 5 - Remove elemento
 */
-Lista* remove_elemento (Lista* l, int v) 
+Lista* remove_valor (Lista* l, int v) 
 {
 	Lista* ant = NULL; /* ponteiro para elemento anterior */
 	
@@ -191,7 +232,7 @@ Lista* remove_elemento (Lista* l, int v)
 6 - Imprimi elemento inicio -  fim
 */
 
-void imprime_inicio_fim (Lista* l)
+void imprime_frente_fim (Lista* l)
 {
 	if (!vazia(l))
 	{
@@ -203,13 +244,13 @@ void imprime_inicio_fim (Lista* l)
 		}
 	}
 	else
-		printf("Lista eh vazia!");	
+		printf("Lista eh vazia!");
 }
 
 /*
 7 - Imprimi elemento fim - inicio
 */
-void imprime_fim_inicio (Lista* l)
+void imprime_reverso (Lista* l)
 {
 	if (!vazia(l))
 	{
@@ -223,7 +264,6 @@ void imprime_fim_inicio (Lista* l)
 	else
 		printf("Lista eh vazia!");	
 }
-
 
 
 /*
@@ -255,3 +295,4 @@ void busca_elemento (Lista* l, int v)
 		printf("O valor %d nao esta na lista!", v);
 	}
 }
+

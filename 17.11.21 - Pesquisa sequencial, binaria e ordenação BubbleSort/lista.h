@@ -15,11 +15,17 @@ bool vazia(Lista* l);
 int tamanho_lista (Lista* l);
 
 Lista* insere_inicio(Lista* l, int i);
+
 Lista* insere_fim(Lista* l, int i);
+
 void imprime(Lista* l);
+
 Lista* busca_sequencial(Lista* l, int v);
+
 Lista* busca_binaria(Lista* l);
+
 Lista* swap(Lista* b, Lista* c);
+
 Lista* ordena_bubblesort(Lista* l);
 
 

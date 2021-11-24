@@ -95,46 +95,51 @@ void imprime(Lista* l)
 Lista* busca_sequencial(Lista* l, int v)
 {
 	Lista* p;
-	v = 0;
-	int	encontrado = 0; //falso
-		
+	int qtd = tamanho_lista(l); //busca quantidade de dados na lista
+     
+    for(int i = 0; i < qtd; i++)
+	{
+        if( p->info == v)
+		{
+            printf("\n Valor do vetor procurado: %d | Posição do vetor: %d ", v, p->info);
+            break;
+        }
+	}
+    	
 }
 
 /*
 5 - Busca_binaria(x) - cria uma copia do vetor original ordenado e busca neste um dado x inteiro, retornando TRUE caso positivo.
 */
-Lista* busca_binaria(Lista* l)
+Lista* busca_binaria(Lista* l, int v)
 {
-	int direita, esquerda, meio;
-	encontrado = 0; /*Falso*/
-	esquerda = 0;
-	direita = tamanho - 1;
+	int qtd = tamanho_lista(l); //busca quantidade de dados na lista
+
 	
-	while(esquerda<=direita && !encontrado)
+	int inicio = 0;
+	int fim = qtd - 1;
+	
+	while(inicio <= fim)
 	{
-		meio=(direita+esquerda)/2;
+		int meio = (inicio+fim)/2;
 		
-		if (vetor[meio] == valor)
+		if(v == meio)
 		{
-			encontrado = 1; /*Verdadeiro*/
-		}
-		else if (valor < vetor[meio])
-		{
-			direita = meio - 1;
+			return meio;
 		}
 		else
-			esquerda = meio + 1;
+		{
+			if(v>meio)
+			{
+				inicio = meio +1;
+			}
+			else
+			{
+				fim = meio -1;
+			}
+		}
 	}
-	
-	if(encontrado)
-	{
-		printf ("Valor %d encontrado na posicao %d\n",
-		vetor[meio], meio);
-	}
-	else
-	{
-		printf ("Valor %d nao encontrado\n", valor);
-	}
+	return -1;	//não encontrado	
 }
 
 
@@ -150,9 +155,9 @@ Lista* swap(Lista* b, Lista* c)
 	return b;	
 }
 
-Lista* ordena_bubblesort(Lista* l)
+Lista* (Lista* l)
 {
-	int qtd=Tamanho_lista(l); //busca quantidade de dados na lista
+	int qtd = tamanho_lista(l); //busca quantidade de dados na lista
 	Lista* a; Lista* b; Lista* c;
 	
 	if (qtd>1)

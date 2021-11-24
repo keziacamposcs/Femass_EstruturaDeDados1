@@ -68,18 +68,20 @@ int main(int argc, char** argv)
 				
 			case 5:
 				printf( "Digite um numero para busca sequencial na lista: ");
-				scanf( "%d", &num);
+				scanf( "%d", &v);
 				
-				busca_binaria(l, num);
+				busca_binaria(l);
 				
 				system("PAUSE");
 				break;
 				
 			case 6:
-				l = ordena_BubbleSort(l, v);
+				l = ordena_bubblesort(l);
 				
 				system("PAUSE");
 				break;								
 		}
 	}
+	while(op != 7);
+	return 0;
 }

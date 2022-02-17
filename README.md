@@ -1,4 +1,4 @@
-# Estrutura de Dados 1
+# Estrutura de Dados em C
 
 Nesse repositório, irá encontrar meus códigos feitos durante as aulas de Estrutura de Dados 1 com o professor Irineu do curso de Sistemas de Informação da FEMASS.
 

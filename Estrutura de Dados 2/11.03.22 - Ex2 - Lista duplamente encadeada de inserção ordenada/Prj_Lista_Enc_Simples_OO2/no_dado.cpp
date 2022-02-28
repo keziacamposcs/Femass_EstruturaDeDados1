@@ -3,7 +3,8 @@
 #include "no_dado.h"
 
 //construtor
-no_dado::no_dado(){
+no_dado::no_dado()
+{
 	this->prox = 0; 
 	this->ant = 0; 
 

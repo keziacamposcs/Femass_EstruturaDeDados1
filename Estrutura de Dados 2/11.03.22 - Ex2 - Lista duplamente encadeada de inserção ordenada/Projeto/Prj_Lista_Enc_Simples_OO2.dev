@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit1]
-FileName=Lista_dupla.cpp
+FileName=Lista.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -81,7 +81,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=Lista_dupla.h
+FileName=Lista.h
 CompileCpp=1
 Folder=
 Compile=1

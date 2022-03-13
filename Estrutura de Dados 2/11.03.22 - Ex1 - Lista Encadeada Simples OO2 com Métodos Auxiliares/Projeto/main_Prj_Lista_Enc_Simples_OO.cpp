@@ -1,5 +1,5 @@
 #include "Lista.h"
-
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 int menu()
 {
 	system("cls");
@@ -84,27 +84,27 @@ int main(int argc, char** argv) {
 				printf( "Digite um numero pra retirar: ");
 				scanf( "%d", &i);
 				
-				l.retira(i);
+				l.remove(i);
 				
 				system("PAUSE");
 				break;
 				
 				
 			case 7:
-				l.retira_inicio();
+				l.remove_ini();
 								
 				system("PAUSE");
 				break;				
 
 
 			case 8:
-				l.retira_fim();
+				l.remove_fim();
 
 				system("PAUSE");
 				break;	
 				
 			case 9:
- 				l.imprime_inicio();
+ 				l.imprime_ini();
 				
 				system("PAUSE");
 				break;
@@ -114,7 +114,7 @@ int main(int argc, char** argv) {
 				l.imprime_fim();
 				
 				system("PAUSE");
-				break;		
+				break;			
 			
 			case 11:
 				l.libera();
@@ -127,3 +127,5 @@ int main(int argc, char** argv) {
 	system("pause");
 	return 0;
 }
+
+

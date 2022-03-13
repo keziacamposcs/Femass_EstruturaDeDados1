@@ -8,35 +8,31 @@
 
 using namespace std;
 
-//struct lista {
-//	int info;
-//	struct lista* prox;
-//};
-//typedef struct lista no_dado;
-
-
-//Estruturar a classe Lista que terá os métodos de manipulação da lista simples, usando alocação
-//de nó-dado struct lista (no_dado) dinamicamente
-class Lista{
+class Lista
+{
 	//Declarar atributos
 	private:
 		no_dado* cabeca; //controle de nó-cabeça
+		no_dado* calda; //controle de nó-calda
 		int qtd; //guardar qtd de nós encadeados
 	
 	//Declarando métodos	
 	public:
 		Lista();
 		~Lista();
-		void insere_inicio(int i);
-		void imprime();
-		void vazia();
+		
+		void insere(int i);
+		void remove_inicio();
+		void remove_fim();
+		void remove_elemento(int i);
+		void imprime_inicio_fim();
+		void imprime_fim_inicio();
+		void busca_elemento(int i);
+		
+		
 		void libera();
-		void tamanho();
-		/*
-		void busca(int i);
-		void retira(int i);
-		void insere_fim(int i);
-		*/
+		void vazia();
+	
 	private:
 		bool isEmpty(no_dado* l);//método privado que auxiliará verificação de lista vazia a partir de um ponteiro	
 };

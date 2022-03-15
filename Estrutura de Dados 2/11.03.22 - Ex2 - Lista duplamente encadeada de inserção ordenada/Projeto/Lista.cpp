@@ -22,30 +22,50 @@ Lista::~Lista()
 */
 void Lista::insere(int i)
 {
- 	no_dado* novo = new no_dado(i, this->cabeca);
- 	no_dado ant = NULL; /* ponteiro para elemento anterior */
 	no_dado* p; /* ponteiro para percorrer a lista*/
+ 	no_dado* novo = new no_dado(i, this->cabeca);
+	no_dado* ant = NULL;
+	no_dado* prox = NULL;
 	
-	while(p!=NULL && p->info < i)
+	
+	
+	/* procura posição de inserção */
+	while (p != NULL && p->info < i)
 	{
 		ant = p;
-		p = p->prox;
+	 	p = p->prox;
 	}
 	
-	if(ant==NULL)
-	{
-	 	/* insere elemento no início */
-	 	novo->prox = this->cabeca;
-	  	this->cabeca = novo; //adiciona a partir do inicio
+	if (p != NULL)
+	{ 
+		if(ant!=NULL)
+		{
+			novo->prox = ant->prox;
+	 		ant->prox = novo;
+			
+		}
+		else
+		{
+		 	novo->prox = p;
+		 	p = novo;
+		}
+	
 	}
 	else
 	{
-		/* insere elemento no meio */
-		novo->prox = this->calda;
-		this->calda = novo;
+		if(ant==NULL)
+		{
+		 	novo->prox = this->cabeca;
+		  	this->cabeca = novo; //adiciona a partir do inicio
+
+		}
+		else
+		{
+			novo->ant = ant;
+			ant->prox = novo;
+		}
 	}
-	
-  	this->qtd++; //incrementa o contador de nó-dado
+	this->qtd++; //incrementa o contador de nó-dado
 }
 
 
@@ -117,7 +137,14 @@ void Lista::imprime_inicio_fim()
 */
 void Lista::imprime_fim_inicio()
 {
-	printf("/n");
+	if (!this->isEmpty(this->cabeca)){
+		no_dado* p; /* variável auxiliar para percorrer a lista */
+		printf("Info = ");
+		for (p = this->cabeca; p != NULL; p = p->prox)
+			printf("%d - ", p->info);
+		printf("\n");	
+	} else printf("Lista está vazia!\n");
+	
 }
 
 

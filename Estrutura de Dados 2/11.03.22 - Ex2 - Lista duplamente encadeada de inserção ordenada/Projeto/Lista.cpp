@@ -135,7 +135,7 @@ void Lista::imprime_inicio_fim()
 /*
 6 - Imprime fim-inicio
 */
-void Lista::imprime_fim_inicio()
+void Lista::imprime_fim_inicio() //imprime normal p/ verificar
 {
 	if (!this->isEmpty(this->cabeca)){
 		no_dado* p; /* variável auxiliar para percorrer a lista */
@@ -166,18 +166,29 @@ void Lista::busca_elemento(int i)
 	printf("Nao esta na lista!");
 }
 
-void Lista::libera(){
+
+
+void Lista::libera()
+{
 	no_dado* p = this->cabeca;
-	 while (p != NULL) {
+	
+	 while (p != NULL)
+	 {
 	 	no_dado* t = p->prox; // guarda refer?ncia para o pr?ximo elemento
+		
 		free(p); /* libera a mem?ria apontada por p */
+		
 		this->qtd--; //decrementa contador de qtd
-	 	p = t; /* faz p apontar para o pr?ximo */
+	 	
+		p = t; /* faz p apontar para o pr?ximo */
 	 }
+	 
 	 this->cabeca = 0; //inicializa lista vazia
 }
+
 //tratamento métodos privados
-bool Lista::isEmpty(no_dado* l){
+bool Lista::isEmpty(no_dado* l)
+{
 	return l==NULL;
 }
 

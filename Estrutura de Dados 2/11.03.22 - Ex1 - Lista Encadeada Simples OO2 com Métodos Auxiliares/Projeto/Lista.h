@@ -18,36 +18,40 @@ typedef struct lista no_dado;
 class Lista{
 	//Declarar atributos
 	private:
-		no_dado* inicio;
-		no_dado* fim;
-
-		int qtd; 
+		no_dado* cabeca; //controle de nó-cabeça
+		no_dado* calda; //controle de nó-calda
+		int qtd; //guardar qtd de nós encadeados
 
 	//Declarando metodos	
 	public:
 		Lista();
 		~Lista();
 
-		void insere_inicio(int i); //1
-		void insere_fim(int i); //2
-		void imprime(); //3
-		void tamanho(); //4
-		void busca(int i); //5
-		void remove(int i); //6
+		void insere_inicio(int i); //ok
+		void insere_fim(int i); 
+		void imprime(); //ok
+		void tamanho(); //ok
+		int busca(int i);
+		void busca_elemento(int i);
+		void remove(int i);
 		void remove_ini();
 		void remove_fim();
-	//	void imprime_ini();
-		//void imprime_fim();
+		
+		//int apontaIni(no_dado* l); 
+		void imprimeIni();
+		
+		//int apontaIni(no_dado* l); 
+		void imprimeFim();
 
 		void libera();
 		void vazia();
 
 
 
-
-
 	private:
 		bool isEmpty(no_dado* l);
+		int apontaIni(no_dado* l); 
+		int apontaFim(no_dado* l); 
 };
 
 

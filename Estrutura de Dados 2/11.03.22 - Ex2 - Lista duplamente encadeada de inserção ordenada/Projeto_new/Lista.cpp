@@ -149,8 +149,42 @@ void Lista::remove_fim()
 */
 int Lista::remove_elemento(int i)
 {
-		printf("/n");
-
+	no_dado* ant = NULL; /* ponteiro para elemento anterior */
+	no_dado* p = this->cabeca; /* ponteiro para percorrer a lista*/
+	
+	
+	 /* procura elemento na lista, guardando anterior */
+	while (p != NULL && p->info != i)
+	{
+	 	ant = p;
+	 	p = p->prox;
+	}
+	
+	if (p == NULL)
+	{
+		printf("Lista esta vazia!\n");
+	}
+	
+	
+	/* retira elemento */
+	if (ant == NULL)
+	{
+		
+		/* retira elemento do inicio */
+		this->cabeca = p->prox;
+		this->qtd--;
+	}
+	
+	
+	else
+	{
+		
+		/* retira elemento do meio da lista */
+		ant->prox = p->prox;
+		this->qtd--;
+	}	
+	
+	free(p);
 }
 
 

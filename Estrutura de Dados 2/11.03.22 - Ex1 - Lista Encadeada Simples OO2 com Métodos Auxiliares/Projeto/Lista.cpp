@@ -3,8 +3,9 @@
 #include "Lista.h"
 
 //construtor
-Lista::Lista(){
-	this->inicio = 0; //inicializa lista vazia
+Lista::Lista()
+{
+	this->cabeca = 0; //inicializa lista vazia
 	this->qtd = 0;
 }
 
@@ -22,10 +23,14 @@ Lista::~Lista(){
 void Lista::insere_inicio(int i)
 {
 	no_dado* novo = (no_dado*) malloc(sizeof(no_dado));
+	
  	novo->info = i;
- 	novo->prox = this->inicio;
-  	this->inicio = novo; //adiciona a partir do inicio
-  	this->qtd++; //incrementa o contador de no-dado
+ 	
+ 	novo->prox = this->cabeca;
+ 	
+  	this->cabeca = novo; //adiciona a partir do inicio
+  	
+	this->qtd++; //incrementa o contador de no-dado
 }
 
 /*
@@ -41,9 +46,9 @@ void Lista::insere_fim(int i)
 		novo->info = i;
 		novo->prox = NULL;
 		
-		if (!this->isEmpty(this->inicio))
+		if (!this->isEmpty(this->cabeca))
 		{
-			p = this->inicio;
+			p = this->cabeca;
 			while(p->prox)
 			{
 				p = p->prox;
@@ -52,9 +57,10 @@ void Lista::insere_fim(int i)
 		}
 		else
 		{
-			this->inicio = novo;
+			this->cabeca = novo;
 		}
 	}
+
 	this->qtd++;
 
 }
@@ -64,18 +70,20 @@ void Lista::insere_fim(int i)
 */
 void Lista::imprime()
 {
-	if (!this->isEmpty(this->inicio))
+	if (!this->isEmpty(this->cabeca))
 	{
 		no_dado* p; /* variavel auxiliar para percorrer a lista */
 		printf("Info = ");
 		
-		for (p = this->inicio; p != NULL; p = p->prox)
+		for (p = this->cabeca; p != NULL; p = p->prox)
 		{
 			printf("%d - ", p->info);
 		}
 		printf("\n");	
 	}
-	else printf("Lista esta vazia!\n");
+	else
+	
+	printf("Lista esta vazia!\n");
 }
 
 /*
@@ -88,17 +96,29 @@ void Lista::tamanho(){
 /*
 5 - Busca um elemento da lista
 */
-void Lista::busca(int i)
+int Lista::busca(int i)
 {
-	no_dado* p;
-
-	for (p = this->inicio; p != NULL; p = p->prox)
+	no_dado* p; /* variavel auxiliar para percorrer a lista */
+	
+	for (p = this->cabeca; p != NULL; p = p->prox)
 	{
-		if(p->info == i)
-		{
-			printf("%d - ", p);
-		}
-		else printf("Lista esta vazia!\n");
+ 		if (p->info == i)
+ 		{
+			return p->info; 
+ 		}
+ 	}
+	return 0; 	
+}
+
+void Lista::busca_elemento(int i)
+{
+	if (busca (i) == 0)
+	{
+		printf("\nO valor %d esta nao esta lista!\n", i);
+	}
+	else
+	{
+		printf("\nO valor %d esta na lista!\n", i);
 	}
 }
 
@@ -108,33 +128,42 @@ void Lista::busca(int i)
 
 void Lista::remove(int i)
 {
-	no_dado* remover;
-	no_dado* p;
+	no_dado* ant = NULL; /* ponteiro para elemento anterior */
+	no_dado* p = this->cabeca; /* ponteiro para percorrer a lista*/
 	
-	//se possuir apenas um no...
-	if(this->inicio)
+	
+	 /* procura elemento na lista, guardando anterior */
+	while (p != NULL && p->info != i)
 	{
-		if((this->inicio)->info = i)
-		{
-			remover = this->inicio;
-			this->inicio = remover->prox;	
-		}	
-		else
-		{
-			p = this->inicio;
-			while(p->prox && p->prox->info != i)
-			{
-				p = p->prox;
-			}
-			if(p->prox)
-			{
-				remover = p->prox;
-				p->prox = remover->prox;
-			}
-		}
+	 	ant = p;
+	 	p = p->prox;
 	}
-	printf("Removido: %d", remover);
-	this->qtd--; //incrementa o contador de no-dado
+	
+	if (p == NULL)
+	{
+		printf("Lista esta vazia!\n");
+	}
+	
+	
+	/* retira elemento */
+	if (ant == NULL)
+	{
+		
+		/* retira elemento do inicio */
+		this->cabeca = p->prox;
+		this->qtd--;
+	}
+	
+	
+	else
+	{
+		
+		/* retira elemento do meio da lista */
+		ant->prox = p->prox;
+		this->qtd--;
+	}	
+	
+	free(p);
 
 }
 
@@ -143,13 +172,37 @@ void Lista::remove(int i)
 */
 void Lista::remove_ini()
 {
-	no_dado* p;
-	p = this->inicio;
+	no_dado* ant = NULL;
+	no_dado* p = this->cabeca; /* ponteiro para percorrer a lista comecando no inicio*/
+	
+	while (p != NULL && p->info != apontaIni(this->cabeca))
+	{
+		ant = p;
+		p = p->prox ;	
+	}
+	
+	
+	if(p == NULL)
+	{
+		printf("Lista eh vazia!");	
+	}
+	
+	
+	if(ant == NULL)
+	{
+		this->cabeca = p->prox;
+		this->qtd--;
+	}
+	
+	
+	else
+	{
+		ant->prox = p->prox;
+		this->qtd--;
+	}
 	free(p);
-	this->qtd--; //incrementa o contador de no-dado
-
+	this->qtd--;
 }
-
 
 
 /*
@@ -157,71 +210,86 @@ void Lista::remove_ini()
 */
 void Lista::remove_fim()
 {
-	no_dado* p; /* variavel auxiliar para percorrer a lista */
+	no_dado* ant = NULL; /* ponteiro para elemento anterior */
+	no_dado* p = this->cabeca; /* ponteiro para percorrer a lista*/
 	
-	if (p == NULL){
-		printf("Removido: %d", p);
-	}
-	
-	if(p->prox == NULL)
+	 /* procura elemento na lista, guardando anterior */
+	while (p != NULL && p->info != this->apontaFim(this->cabeca))
 	{
-		free(p);
-		printf("Removido: %d", p);
+	 	ant = p;
+	 	p = p->prox;
 	}
-  	this->qtd--;
+	
+	/* verifica se achou elemento */
+	if (p == NULL)
+	{
+		printf("Lista eh vazia!");	
+
+	}
+	if (ant == NULL)
+	{
+		this->cabeca = p->prox;
+		this->qtd--;
+	}
+	
+	else
+	{
+		ant->prox = p->prox;
+		this->qtd--;
+	}	
+	free(p);
 }
 
 
 /*
 9 - Imprime inicio
 */
-void imprime_ini()
+void Lista::imprimeIni()
 {
-	no_dado* p; /* variavel auxiliar para percorrer a lista */
-	p->info = this->inicio;
-		
-	/* testa se lista nao e vazia */
-	if (p!= NULL)
+
+	if (!this->isEmpty(this->cabeca))
 	{
-		printf("\n No-dado no inicio da lista: %d\n", p->info);
+		printf("Inicio: %d\n", this->apontaIni(this->cabeca) );
+	}
+	else
+	{
+		printf("Lista eh vazia!");	
 	}
 }
+
 
 /*
 10 - Imprime fim
 */
-void imprime_fim()
+void Lista::imprimeFim()
 {
-	no_dado* p;
-	p = this->inicio;
-
-	if (!this->isEmpty(this->inicio))
+	if (!this->isEmpty(this->cabeca))
 	{
-		do
-		{
-			p = p->prox; 
-		}
-		while (p->prox != NULL);			
+		printf("Inicio: %d\n", this->apontaFim(this->cabeca) );
 	}
-	printf("\n No do fim da lista: %d \n", p->info);
+	else
+	{
+		printf("Lista eh vazia!");	
+	}
 }
 
 /*
 11 - Libera lista
 */
-void Lista::libera(){
-	no_dado* p = this->inicio;
+void Lista::libera()
+{
+	no_dado* p = this->cabeca;
 	 while (p != NULL) {
 	 	no_dado* t = p->prox; // guarda refer?ncia para o pr?ximo elemento
 		free(p); /* libera a mem?ria apontada por p */
 		this->qtd--; //decrementa contador de qtd
 	 	p = t; /* faz p apontar para o pr?ximo */
 	 }
-	 this->inicio = 0; //inicializa lista vazia
+	 this->cabeca = 0; //inicializa lista vazia
 }
 
 void Lista::vazia(){
-	if (!this->isEmpty(this->inicio))
+	if (!this->isEmpty(this->cabeca))
 		printf("Lista nao esta vazia!\n");
 	else
 		printf("Lista esta vazia!\n");
@@ -234,4 +302,19 @@ bool Lista::isEmpty(no_dado* l){
 }
 
 
+int Lista::apontaIni(no_dado* l)
+{
+	return l->info;
+}
 
+int Lista::apontaFim(no_dado* l)
+{
+	for (l = this->cabeca; l != NULL; l = l->prox)
+	{
+		if (l->prox == NULL)
+		{
+			return l->info;
+		}
+	}
+	printf("No fim:",l->info);
+}

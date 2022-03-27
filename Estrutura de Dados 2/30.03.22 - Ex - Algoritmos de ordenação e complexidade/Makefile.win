@@ -1,15 +1,15 @@
-# Project: Prj_Lista_Enc_Simples_OO2
+# Project: Project1
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Lista.o main_Prj_Lista_Enc_Simples_OO2.o no_dado.o
-LINKOBJ  = Lista.o main_Prj_Lista_Enc_Simples_OO2.o no_dado.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -std=c++11 -std=gnu++11
+OBJ      = main.o ordenacao.o
+LINKOBJ  = main.o ordenacao.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = Prj_Lista_Enc_Simples_OO2.exe
+BIN      = Projeto.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
 RM       = rm.exe -f
@@ -24,11 +24,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Lista.o: Lista.cpp
-	$(CPP) -c Lista.cpp -o Lista.o $(CXXFLAGS)
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
-main_Prj_Lista_Enc_Simples_OO2.o: main_Prj_Lista_Enc_Simples_OO2.cpp
-	$(CPP) -c main_Prj_Lista_Enc_Simples_OO2.cpp -o main_Prj_Lista_Enc_Simples_OO2.o $(CXXFLAGS)
-
-no_dado.o: no_dado.cpp
-	$(CPP) -c no_dado.cpp -o no_dado.o $(CXXFLAGS)
+ordenacao.o: ordenacao.cpp
+	$(CPP) -c ordenacao.cpp -o ordenacao.o $(CXXFLAGS)

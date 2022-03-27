@@ -20,7 +20,7 @@ Lista::~Lista()
 /*
 1 - Insere ordenado //erro
 */
-void Lista::insere(int i)
+void Lista::insere(no_dado* l, int i)
 {
 	no_dado* p; /* ponteiro para percorrer a lista*/
  	no_dado* novo = new no_dado(i, this->cabeca);
@@ -67,7 +67,6 @@ void Lista::insere(int i)
 	}
 	this->qtd++; //incrementa o contador de nó-dado
 }
-
 
 /*
 2 - Remove inicio
@@ -137,13 +136,21 @@ void Lista::imprime_inicio_fim()
 */
 void Lista::imprime_fim_inicio()
 {
-	if (!this->isEmpty(this->cabeca)){
+	if (!this->isEmpty(this->cabeca))
+	{
 		no_dado* p; /* variável auxiliar para percorrer a lista */
+		
 		printf("Info = ");
+		
 		for (p = this->cabeca; p != NULL; p = p->prox)
+		
 			printf("%d - ", p->info);
+			
 		printf("\n");	
-	} else printf("Lista está vazia!\n");
+	} 
+	else 
+	
+	printf("Lista está vazia!\n");
 	
 }
 
@@ -177,7 +184,8 @@ void Lista::libera(){
 	 this->cabeca = 0; //inicializa lista vazia
 }
 //tratamento métodos privados
-bool Lista::isEmpty(no_dado* l){
+bool Lista::isEmpty(no_dado* l)
+{
 	return l==NULL;
 }
 

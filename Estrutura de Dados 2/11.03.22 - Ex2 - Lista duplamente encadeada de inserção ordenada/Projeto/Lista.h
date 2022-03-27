@@ -21,7 +21,7 @@ class Lista
 		Lista();
 		~Lista();
 		
-		void insere(int i);
+		void insere(no_dado* l, int i);
 		void remove_inicio();
 		void remove_fim();
 		void remove_elemento(int i);

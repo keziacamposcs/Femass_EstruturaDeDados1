@@ -1,0 +1,35 @@
+# Project: Prj_Lista_Enc_Simples_OO2
+# Makefile created by Dev-C++ 6.7.5
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Lista.o main_Prj_Lista_Enc_Simples_OO2.o no_dado.o
+LINKOBJ  = Lista.o main_Prj_Lista_Enc_Simples_OO2.o no_dado.o
+LIBS     = -L"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/lib" -L"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/i686-w64-mingw32/lib" -static
+INCS     = -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/lib/gcc/i686-w64-mingw32/10.3.0/include" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/include" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/lib/gcc/i686-w64-mingw32/10.3.0/include-fixed" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/i686-w64-mingw32/include"
+CXXINCS  = -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/include/c++/10.3.0" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/include/c++/10.3.0/i686-w64-mingw32" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/include/c++/10.3.0/backward" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/lib/gcc/i686-w64-mingw32/10.3.0/include" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/include" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/lib/gcc/i686-w64-mingw32/10.3.0/include-fixed" -I"D:/FEMASS/Estrutura de Dados II/Dev-Cpp/MinGW32/i686-w64-mingw32/include"
+BIN      = Prj_Lista_Enc_Simples_OO2.exe
+CXXFLAGS = $(CXXINCS) 
+ENCODINGS = -finput-charset=utf-8 -fexec-charset=windows-1252
+CFLAGS   = $(INCS) 
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "$(BIN)" $(LIBS)
+
+Lista.o: Lista.cpp Lista.h no_dado.h
+	$(CPP) -c Lista.cpp -o Lista.o $(CXXFLAGS) 
+
+main_Prj_Lista_Enc_Simples_OO2.o: main_Prj_Lista_Enc_Simples_OO2.cpp Lista.h no_dado.h
+	$(CPP) -c main_Prj_Lista_Enc_Simples_OO2.cpp -o main_Prj_Lista_Enc_Simples_OO2.o $(CXXFLAGS) 
+
+no_dado.o: no_dado.cpp no_dado.h
+	$(CPP) -c no_dado.cpp -o no_dado.o $(CXXFLAGS) 

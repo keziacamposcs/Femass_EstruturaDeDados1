@@ -1,18 +1,23 @@
 [Editors]
+<<<<<<< HEAD
 Order=
 Focused=-1
+=======
+Order=0,1,2
+Focused=2
+>>>>>>> 5ea660556fe4a199e15d059a72059e3c60bfe35b
 [Editor_0]
-CursorCol=11
-CursorRow=117
-TopLine=102
+CursorCol=12
+CursorRow=80
+TopLine=72
 LeftChar=1
 [Editor_1]
-CursorCol=4
-CursorRow=39
-TopLine=18
+CursorCol=15
+CursorRow=11
+TopLine=1
 LeftChar=1
 [Editor_2]
-CursorCol=17
-CursorRow=202
-TopLine=189
+CursorCol=43
+CursorRow=135
+TopLine=261
 LeftChar=1

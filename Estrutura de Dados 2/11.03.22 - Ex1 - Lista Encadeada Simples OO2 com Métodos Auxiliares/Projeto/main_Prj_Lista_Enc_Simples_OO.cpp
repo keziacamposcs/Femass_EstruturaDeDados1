@@ -71,13 +71,13 @@ int main(int argc, char** argv) {
 				
 				
 			case 5: 
-				printf( "Numero para buscar: ");
+				printf( "Digite um numero para verificar se esta na lista: ");
 				scanf( "%d", &i);
 				
-				l.busca(i);
+				l.busca_elemento(i);
 				
 				system("PAUSE");
-				break;
+				break;	
 
 
 			case 6: 
@@ -104,14 +104,14 @@ int main(int argc, char** argv) {
 				break;	
 				
 			case 9:
- 				l.imprime_ini();
+ 				l.imprimeIni();
 				
 				system("PAUSE");
 				break;
 				
 				
 			case 10:
-				l.imprime_fim();
+				l.imprimeFim();
 				
 				system("PAUSE");
 				break;			

@@ -21,19 +21,27 @@ class Lista
 		Lista();
 		~Lista();
 		
+<<<<<<< HEAD
 		void insere(no_dado* l, int i);
 		void remove_inicio();
+=======
+		void insere(int i); // ok
+		void remove_inicio(); 
+>>>>>>> 5ea660556fe4a199e15d059a72059e3c60bfe35b
 		void remove_fim();
-		void remove_elemento(int i);
-		void imprime_inicio_fim();
-		void imprime_fim_inicio();
+		int remove_elemento(int i);
+		void imprime_inicio_fim(); // ok
+		void imprime_fim_inicio(); // ok
+		int busca(int i);
 		void busca_elemento(int i);
-		
-		
-		void libera();
-		void vazia();
-	
-	private:
-		bool isEmpty(no_dado* l);//método privado que auxiliará verificação de lista vazia a partir de um ponteiro	
-};
 
+		void libera();
+		
+		
+	private:
+		int apontaIni(no_dado* l);
+		int apontaFim(no_dado* l);
+		
+		bool isEmpty(no_dado* l);//método privado que auxiliará verificação de lista vazia a partir de um ponteiro	
+	
+};

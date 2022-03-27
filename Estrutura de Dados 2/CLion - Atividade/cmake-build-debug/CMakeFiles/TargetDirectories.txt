@@ -1,3 +1,0 @@
-C:/Users/kezia/Documents/GitHub/Femass_EstruturaDeDados_C/Estrutura de Dados 2/CLion - Atividade/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/kezia/Documents/GitHub/Femass_EstruturaDeDados_C/Estrutura de Dados 2/CLion - Atividade/cmake-build-debug/CMakeFiles/CLion___Atividade.dir
-C:/Users/kezia/Documents/GitHub/Femass_EstruturaDeDados_C/Estrutura de Dados 2/CLion - Atividade/cmake-build-debug/CMakeFiles/rebuild_cache.dir

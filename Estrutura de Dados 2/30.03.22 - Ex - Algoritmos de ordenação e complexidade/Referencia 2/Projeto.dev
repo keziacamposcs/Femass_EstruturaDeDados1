@@ -1,6 +1,6 @@
 [Project]
 FileName=Projeto.dev
-Name=Project1
+Name=Projeto
 Type=1
 Ver=2
 ObjFiles=
@@ -60,28 +60,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit4]
-FileName=ordenacao.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit5]
-FileName=ordenacao.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit2]
-FileName=ordenacao.h
+FileName=Sorts.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -91,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=ordenacao.cpp
+FileName=Sorts.cpp
 CompileCpp=1
 Folder=
 Compile=1

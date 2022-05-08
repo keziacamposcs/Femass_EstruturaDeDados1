@@ -1,0 +1,13 @@
+Atividade prática - Árvore Binária de Busca - adaptar Biblioteca Árvore-base
+---
+
+Implemente as melhorias citadas a seguir na biblioteca OO C++ sobre Árvore Binária de base (Prj_Arv_BinariaOO_base.zip):
+Modifique o nó-dado para uso via classe ao invés de struct.
+Método "abb_busca" capaz de verificar se existe um dado nó-dado v na árvore.
+Método "abb_retira" capaz de verificar a existência de 1ª ocorrência de nó-dado inteiro v, removendo-o da árvore. (dica: verificar casos de remoção de nó-dado na referência https://www.ic.unicamp.br/~rocha/teaching/2016s1/mc202/aulas/arvore-binaria-busca-01.pdf  -> estratégia do caso 3, nó com 2 filhos, é dito "remoção por cópia" porque copia o valor do nó a ser removido para o posição do antecessor imediato que de fato será removido).
+Método "abb_niveis" que conte e retorne a quantidade de níveis da árvore.
+Método "qtd_nodos"  capaz de retornar um inteiro de quantidade de nós de dados presentes na árvore.
+Travessias de 3 tipos com recursão ("pré-ordem", "em-ordem", "pós-ordem").
+Crie método "abb_balance" que possa ser utilizado a partir do main pelo usuário, a fim de refazer a árvore de forma balanceada caso esteja desbalanceada (diferença entre níveis de subárvores maior que 1) - dica: método balance compartilhado do livro Adam Drozdek (cria vetor ordena e o subdivide para gerar uma nova árvore balanceada), leitura p. 217-219.
+Interface com menu para todos os métodos públicos de classe Árvore, permitindo que o usuário os escolha de forma conveniente.
+Submeter ZIP da pasta de projeto (excluindo-se .exe e .o) + README.txt com descrição geral dos métodos implementados, dificuldades, fontes pesquisadas, etc.

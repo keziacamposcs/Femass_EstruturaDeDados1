@@ -1,5 +1,6 @@
 #include "Ordenacao.h"
 
+
 void criaVetor(int* vetor, int tamanho)
 {
 	srand(time(NULL));
@@ -18,16 +19,15 @@ void copiaVetor(int* vetor, int* v_original, int tamanho)
 		v_original[i] = vetor[i];
 	}
 }
-
-
 void imprime(int* vetor, int tamanho)
 {
 	int i;
-	
+	printf("[");
 	for (i = 0; i < tamanho; i++)
 	{
 		printf(" %d", vetor[i]);
 	}
+	printf(" ]");
 }
 
 
@@ -49,7 +49,6 @@ void bubbleSort(int* vetor, int tamanho)
 		}
 	}
 }
-
 void TempoBubble(int* vetor, int tamanho)
 {
 	clock_t inicio = clock();
@@ -57,11 +56,14 @@ void TempoBubble(int* vetor, int tamanho)
 	bubbleSort(vetor, tamanho);
 
 	clock_t fim = clock();
+	
 	double tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
 
-	printf("\nTempo gasto na execucao do metodo: %f segundos", tempoDeCpu);
+	printf("\n Bubble Sort - Tempo: %f segundos", tempoDeCpu);
 }
-//	Fim Bubble
+//	Fim
+
+
 
 //	Select Sort
 void selectSort(int* vetor, int tamanho)
@@ -92,19 +94,19 @@ void TempoSelect(int* vetor, int tamanho)
 	
 	double tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
 
-	printf("\nTempo gasto na execucao do metodo: %f segundos", tempoDeCpu);
+	printf("\n Select Sort - Tempo: %f segundos", tempoDeCpu);
 }
-//	Fim Select
+//	Fim
+
 
 //	Insertion Sort
-void insertionSort(int* vetor, int tamanho) 
+void insertionSort(int* vetor, int tamanho)
 {
-	for(int i = 1; i < tamanho; i++) 
+	for(int i = 1; i < tamanho; i++)
 	{
 		int tmp = vetor[i];
 		int j = i;
-		
-		while(j > 0 && tmp < vetor[j - 1]) 
+		while(j > 0 && tmp < vetor[j - 1])
 		{
 			vetor[j] = vetor[j - 1];
 			j--;
@@ -112,7 +114,6 @@ void insertionSort(int* vetor, int tamanho)
 		vetor[j] = tmp;
 	}
 }
-
 void TempoInsertion(int* vetor, int tamanho)
 {
 	clock_t inicio = clock();
@@ -120,11 +121,13 @@ void TempoInsertion(int* vetor, int tamanho)
 	insertionSort(vetor, tamanho);
 
 	clock_t fim = clock();
+	
 	double tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
 
-	printf("\nTempo gasto na execucao do metodo: %f segundos", tempoDeCpu);
+	printf("\n Insert Sort - Tempo: %f segundos", tempoDeCpu);
 }
-//	Fim Insert
+
+
 
 //	Quick Sort
 void quickSort(int* vetor, int tamanho)
@@ -151,29 +154,29 @@ void quickSort(int* vetor, int tamanho)
   quickSort(vetor + i, tamanho - i);
 }
 
-void TempoQuick(int* vetor, int tamanho){
+void TempoQuick(int* vetor, int tamanho)
+{
 	clock_t inicio = clock();
 
 	quickSort(vetor, tamanho);
 
 	clock_t fim = clock();
+	
 	double tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
 
-	printf("\nTempo gasto na execucao do metodo: %f segundos", tempoDeCpu);
+	printf("\n Quick Sort - Tempo: %f segundos", tempoDeCpu);
 }
-//	Fim Quick Sort
 
-//	Shell Sort
+
+// Shell Sort
 void shellSort (int* vetor, int tamanho)
 {
     int h, i, j, t;
-    
     for (h = tamanho; h /= 2;)
 	{
         for (i = h; i < tamanho; i++)
 		{
             t = vetor[i];
-            
             for (j = i; j >= h && t < vetor[j - h]; j -= h)
 			{
                 vetor[j] = vetor[j - h];
@@ -183,6 +186,7 @@ void shellSort (int* vetor, int tamanho)
         }
     }
 }
+
 void TempoShell(int* vetor, int tamanho)
 {
 	clock_t inicio = clock();
@@ -190,13 +194,16 @@ void TempoShell(int* vetor, int tamanho)
 	shellSort(vetor, tamanho);
 
 	clock_t fim = clock();
+	
 	double tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
 
-	printf("\nTempo gasto na execucao do metodo: %f segundos", tempoDeCpu);
+	printf("\n Shell Sort - Tempo: %f segundos", tempoDeCpu);
 }
-//	Fim Shell Sort
+//	Fim
 
-// Merge Sort
+
+
+//	Merge Sort
 void mergeSort(int* vetor, int l, int r)
 {
 	if(r > l)
@@ -209,15 +216,12 @@ void mergeSort(int* vetor, int l, int r)
 	}
 }
 
-//	Funcao aux Merge Sort 
-void intercalar(int* vetor, int l, int m, int r)
-{
+void intercalar(int* vetor, int l, int m, int r){
 	int i, j, k;
 	int indice1 = m - l + 1;
 	int indice2 = r - m;
 	
 	int vetTEMP1[indice1], vetTEMP2[indice2];
-	
 	for (i = 0; i < indice1; i++)
 	{
 		vetTEMP1[i] = vetor[l + i];
@@ -259,8 +263,8 @@ void intercalar(int* vetor, int l, int m, int r)
 		k++;
 	}
 }
-void TempoMerge(int* vetor, int tamanho, int r)
-{
+
+void TempoMerge(int* vetor, int tamanho, int r){
 	clock_t inicio = clock();
 
 	mergeSort(vetor, tamanho, r);
@@ -268,19 +272,17 @@ void TempoMerge(int* vetor, int tamanho, int r)
 	clock_t fim = clock();
 	double tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
 
-	printf("\nTempo gasto na execucao do metodo: %f segundos", tempoDeCpu);
+	printf("\n Merge Sort - Tempo: %f segundos", tempoDeCpu);
 }
-// Fim Merge Sort
+//	Fim
+
 
 //	Radix Sort
-void radixSort(int* vetor, int tamanho)
-{
+void radixSort(int* vetor, int tamanho) {
 	int i, baseExponencial = 1, m = 0, bucket[tamanho], vetorAux[tamanho];
 
-	for(i = 0; i < tamanho; i++)
-	{
-		if(vetor[i] > m)
-		{
+	for(i = 0; i < tamanho; i++) {
+		if(vetor[i] > m) {
 			m = vetor[i];
 		}
 	}
@@ -311,8 +313,6 @@ void radixSort(int* vetor, int tamanho)
 		{
 			vetor[i] = vetorAux[i];
 		}
-		
-		
 		baseExponencial *= 10;
 	}
 }
@@ -324,27 +324,9 @@ void TempoRadix(int* vetor, int tamanho)
 	radixSort(vetor, tamanho);
 
 	clock_t fim = clock();
-	double tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
+	
+	double tempoDeCpu = (((double) (fim - inicio)) / CLOCKS_PER_SEC);
 
-	printf("\nTempo gasto na execucao do metodo: %f segundos", tempoDeCpu);
+	printf("\n Radix Sort - Tempo: %f segundos", tempoDeCpu);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//	Fim

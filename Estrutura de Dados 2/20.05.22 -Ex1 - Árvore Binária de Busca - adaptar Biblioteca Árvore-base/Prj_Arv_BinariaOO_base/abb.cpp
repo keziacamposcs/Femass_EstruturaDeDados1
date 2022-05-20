@@ -95,18 +95,41 @@ void ArvBB::displayRoot(){
 
 //CONTINUACAO
 
+// 5 - Niveis
 int ArvBB::nivel()
 {
 	return abb_nivel(this->root);
 }
 
+// 6 - Quantidade de Nos
+int ArvBB::qtd_nodos()
+{
+	return qtd_nodos(this->root);
+}
 
+// 7 - Pre Ordem
+int ArvBB::pre_ordem()
+{
+	return pre_ordem(this->root);
+}
 
+// 8 - Em Ordem
+int ArvBB::em_ordem()
+{
+	return em_ordem(this->root);
+}
 
+// 9 - Pos Ordem
+int ArvBB::pos_ordem()
+{
+	return pos_ordem(this->root);
+}
 
-
-
-
+// 10 - Busca
+int ArvBB::busca()
+{
+	return abb_busca(this->root, v);
+}
 
 
 
@@ -176,7 +199,7 @@ bool ArvBB::no_abb_vazio(NoArv* a)
 
 /* CONTINUACAO */
 
-//Níveis
+// 5 - Níveis
 NoArv* ArvBB::abb_nivel(NoArv* a)
 {
 	int sae, sad;
@@ -188,6 +211,7 @@ NoArv* ArvBB::abb_nivel(NoArv* a)
 	
     sae = abb_nivel(a->esq);
     sad = abb_nivel(a->dir);
+    
     if (sae > sad)
 	{
 		return sae + 1;
@@ -198,5 +222,72 @@ NoArv* ArvBB::abb_nivel(NoArv* a)
 	}
 	
 	return NULL;
+}
+
+// 6 - Quantidade de no
+NoArv* ArvBB::qtd_nodos(NoArv* a)
+{    
+	if (a == NULL)
+	{
+        return 0;
+	}
+	
+    return (1 + qtde_nodos(a->esq) + qtde_nodos(a->dir)); 
+
+}
+
+// 7 - Pre Ordem
+NoArv* ArvBB::pre_ordem(NoArv* a)
+{
+	if (a != NULL)
+	{
+		cout << a->info << " "; 
+		
+		pre_ordem(a->esq); 
+		
+		pre_ordem(a->dir); 
+	}
+	
+}
+
+// 8 - Em Ordem
+NoArv* ArvBB::em_ordem(NoArv* a)
+{
+	if (a != NULL)
+	{
+		em_ordem(a->esq);
+		
+		cout << a->info << " ";
+		
+		em_ordem(a->dir);
+	}
+	
+}
+
+// 9 - Pos Ordem
+NoArv* ArvBB::pos_ordem(NoArv* a)
+{
+	if (a != NULL)
+	{
+		pos_ordem(a->esq); 
+		
+		pos_ordem(a->dir);
+		
+		cout << a->info << " ";
+		
+	}
+}
+
+// 10 - Busca
+NoArv* ArvBB::abb_busca(NoArv* a, int v)
+{
+	if(a == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return a->info == num || abb_busca(a->esq, num) || abb_busca(a->dir, num); 
+	}
 }
 

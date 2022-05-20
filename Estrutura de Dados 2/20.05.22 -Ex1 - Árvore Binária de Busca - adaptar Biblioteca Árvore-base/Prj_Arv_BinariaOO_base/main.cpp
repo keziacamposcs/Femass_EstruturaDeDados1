@@ -37,7 +37,7 @@ int menu()
 	printf("7 - Travessia pre-ordem;\n");
 	printf("8 - Travessia em-ordem;\n");
 	printf("9 - Travessia pos-ordem;\n");
-	printf("10 - Balancear;\n");
+	printf("10 - Busca;\n");
 
 	printf("11 - Sair\n");
 	
@@ -81,7 +81,7 @@ int main(int argc, char** argv) {
 			case 3:
 				printf("Reiniciando a árvore!\n");
 				tree.reiniciaTree();
-				mensagem_arvore_vazia(tree.vazia());
+				//mensagem_arvore_vazia(tree.vazia());
 				
 				system("PAUSE");
 				break;
@@ -97,32 +97,36 @@ int main(int argc, char** argv) {
 				
 				system("PAUSE");
 				break;
+				
 			case 6:
-				
-				
+				tree.qtd_nodos();
+			
 				system("PAUSE");
 				break;
 				
 			case 7:
-				
+				tree.pre_ordem();
 				
 				system("PAUSE");
 				break;
 				
 			case 8:
-				
+				tree.em_ordem();
 				
 				system("PAUSE");
 				break;
 				
 			case 9:
-				
+				tree.pos_ordem();
 				
 				system("PAUSE");
 				break;
 				
 			case 10:
-			
+				printf("Numero para para buscar: \n");
+				scanf("%d", &num);
+				
+				tree.busca(num);
 			
 				system("PAUSE");
 				break;

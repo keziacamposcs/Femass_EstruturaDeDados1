@@ -38,7 +38,12 @@ class ArvBB{
 		void displayRoot();
 		
 		//continuacao
-		int nivel();
+		int nivel(); //5
+		int qtd_nodos(); // 6
+		int pre_ordem(); // 7 
+		int em_ordem(); // 8
+		int pos_ordem(); // 9 		
+		int busca(int v); //10
 		
 		
 		
@@ -50,9 +55,14 @@ class ArvBB{
 		bool no_abb_vazio(NoArv* a);
 		
 		//continuacao
-		NoArv* abb_nivel(NoArv* a);
+		NoArv* abb_nivel(NoArv* a); // 5
+		NoArv* qtd_nodos(NoArv* a); // 6
+		NoArv* pre_ordem(NoArv* a); // 7
+		NoArv* em_ordem(NoArv* a); // 8
+		NoArv* pos_ordem(NoArv* a); // 9	
+		NoArv* abb_busca(NoArv* a, int v); // 10
+
 		
 		
-		
-}; //toda classe encerra com ; (padrão da linguagem)
+}; 
 

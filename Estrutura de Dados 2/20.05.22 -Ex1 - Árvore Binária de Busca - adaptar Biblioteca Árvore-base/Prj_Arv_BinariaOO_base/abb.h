@@ -43,8 +43,7 @@ class ArvBB{
 		int pre_ordem(); // 7 
 		int em_ordem(); // 8
 		int pos_ordem(); // 9 		
-		int busca(int v); //10
-		
+		void busca(int v); //10
 		
 		
 	private:
@@ -61,8 +60,6 @@ class ArvBB{
 		NoArv* em_ordem(NoArv* a); // 8
 		NoArv* pos_ordem(NoArv* a); // 9	
 		NoArv* abb_busca(NoArv* a, int v); // 10
-
-		
 		
 }; 
 

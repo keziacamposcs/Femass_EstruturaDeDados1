@@ -17,7 +17,8 @@ ArvBB::~ArvBB(){
 }
 
 //insere novo nó-dado
-void ArvBB::insere(int v){
+void ArvBB::insere(int v)
+{
 	if (this->root != NULL) 
 		abb_insere(this->root, v); //inserção de demais nós-dado após root
 	else
@@ -98,37 +99,79 @@ void ArvBB::displayRoot(){
 // 5 - Niveis
 int ArvBB::nivel()
 {
-	return abb_nivel(this->root);
+	if (this->root != NULL)
+	{
+		abb_nivel(this->root);
+	}
+	else
+	{
+		this->root = abb_nivel(this->root); 
+	}	
 }
 
 // 6 - Quantidade de Nos
 int ArvBB::qtd_nodos()
 {
-	return qtd_nodos(this->root);
+	if (this->root != NULL)
+	{
+		qtd_nodos(this->root);
+	}
+	else
+	{
+		this->root = qtd_nodos(this->root); 
+	}	
 }
 
 // 7 - Pre Ordem
 int ArvBB::pre_ordem()
 {
-	return pre_ordem(this->root);
+	if (this->root != NULL)
+	{
+		pre_ordem(this->root);
+	}
+	else
+	{
+		this->root = pre_ordem(this->root); 
+	}
 }
 
 // 8 - Em Ordem
 int ArvBB::em_ordem()
 {
-	return em_ordem(this->root);
+	if (this->root != NULL)
+	{
+		em_ordem(this->root);
+	}
+	else
+	{
+		this->root = em_ordem(this->root); 
+	}
 }
 
 // 9 - Pos Ordem
 int ArvBB::pos_ordem()
 {
-	return pos_ordem(this->root);
+	if (this->root != NULL)
+	{
+		pos_ordem(this->root);
+	}
+	else
+	{
+		this->root = pos_ordem(this->root); 
+	}
 }
 
 // 10 - Busca
-int ArvBB::busca()
+void ArvBB::busca(int v)
 {
-	return abb_busca(this->root, v);
+	if (this->root != NULL)
+	{
+		abb_busca(this->root, v);
+	}
+	else
+	{
+		this->root = abb_busca(this->root, v); 
+	}
 }
 
 
@@ -202,7 +245,7 @@ bool ArvBB::no_abb_vazio(NoArv* a)
 // 5 - Níveis
 NoArv* ArvBB::abb_nivel(NoArv* a)
 {
-	int sae, sad;
+/*	int sae, sad;
 	
     if (a == NULL)
 	{
@@ -222,6 +265,7 @@ NoArv* ArvBB::abb_nivel(NoArv* a)
 	}
 	
 	return NULL;
+	*/
 }
 
 // 6 - Quantidade de no
@@ -231,9 +275,10 @@ NoArv* ArvBB::qtd_nodos(NoArv* a)
 	{
         return 0;
 	}
-	
-    return (1 + qtde_nodos(a->esq) + qtde_nodos(a->dir)); 
-
+	else
+	{	
+    	return (1 + qtd_nodos(a->esq) + qtd_nodos(a->dir)); 
+	}
 }
 
 // 7 - Pre Ordem
@@ -280,14 +325,10 @@ NoArv* ArvBB::pos_ordem(NoArv* a)
 
 // 10 - Busca
 NoArv* ArvBB::abb_busca(NoArv* a, int v)
-{
-	if(a == NULL)
-	{
-		return 0;
-	}
+{	
+	if (this->root != NULL) 
+		abb_busca(this->root, v); 
 	else
-	{
-		return a->info == num || abb_busca(a->esq, num) || abb_busca(a->dir, num); 
-	}
+		this->root = abb_busca(this->root, v);
 }
 

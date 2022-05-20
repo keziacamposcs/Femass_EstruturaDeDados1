@@ -39,14 +39,15 @@ int menu()
 	printf("9 - Travessia pos-ordem;\n");
 	printf("10 - Busca;\n");
 
-	printf("11 - Sair\n");
+	printf("0 - Sair\n");
 	
 	printf("Escolha umas das opcoes acima: ");
 	scanf("%d", &op);
 	return op;
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
 	
 	setlocale(LC_ALL, "Portuguese");
 	printf("PROGRAMA ÁRVORE BINÁRIA DE BUSCA OO\n");
@@ -137,7 +138,7 @@ int main(int argc, char** argv) {
 				system("PAUSE");					
 		}
 	}
-	while(op!=11);
+	while(op!=0);
 	tree.~ArvBB(); //destrutor da árvore
 
 	return 0;

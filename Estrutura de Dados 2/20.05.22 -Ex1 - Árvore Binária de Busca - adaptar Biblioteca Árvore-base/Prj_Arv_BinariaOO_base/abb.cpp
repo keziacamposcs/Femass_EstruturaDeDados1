@@ -245,27 +245,28 @@ bool ArvBB::no_abb_vazio(NoArv* a)
 // 5 - Níveis
 NoArv* ArvBB::abb_nivel(NoArv* a)
 {
-/*	int sae, sad;
+	int sae, sad;
 	
     if (a == NULL)
 	{
     	return -1;
 	}
-	
-    sae = abb_nivel(a->esq);
-    sad = abb_nivel(a->dir);
-    
-    if (sae > sad)
+	else
 	{
-		return sae + 1;
+	    sae = abb_nivel(a->esq);
+	    sad = abb_nivel(a->dir);
+	    
+	    if (sae > sad)
+		{
+			return sae + 1;
+		}
+	    else
+		{
+			return sad + 1;
+		}
 	}
-    else
-	{
-		return sad + 1;
-	}
-	
 	return NULL;
-	*/
+	
 }
 
 // 6 - Quantidade de no
@@ -318,8 +319,7 @@ NoArv* ArvBB::pos_ordem(NoArv* a)
 		
 		pos_ordem(a->dir);
 		
-		cout << a->info << " ";
-		
+		printf("%d", a->info)
 	}
 }
 

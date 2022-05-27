@@ -72,6 +72,7 @@ class ArvBB{
 		NoArv* balance_aux(NoArv* a); // 11
 		NoArv* balance(NoArv* a); // 11
 		NoArv* remove_copia(NoArv* a); // 12
+		NoArv* remove_fusao_aux(NoArv* a); // 13
 		NoArv* remove_fusao(NoArv* a); // 13
 
 }; 

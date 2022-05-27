@@ -174,7 +174,44 @@ void ArvBB::busca(int v)
 	}
 }
 
+// 11 - Balanceamento
+int ArvBB::balance()
+{
+	if (this->root != NULL)
+	{
+		balance(this->root);
+	}
+	else
+	{
+		this->root = balance(this->root); 
+	}
+}
 
+// 12 - Remocao por copia
+void ArvBB::remove_copia(int v)
+{
+	if (this->root != NULL)
+	{
+		remove_copia(this->root, v);
+	}
+	else
+	{
+		this->root = remove_copia(this->root, v); 
+	}
+}
+
+// 13 - Remocao por fusao
+void ArvBB::remove_fusao(int v)
+{
+	if (this->root != NULL)
+	{
+		remove_fusao(this->root, v);
+	}
+	else
+	{
+		this->root = remove_fusao(this->root, v); 
+	}
+}
 
 //>>>>>>>>>> Métodos Privados - em apoio e execução interna (privada) <<<<<<<<<
 
@@ -287,7 +324,7 @@ NoArv* ArvBB::pre_ordem(NoArv* a)
 {
 	if (a != NULL)
 	{
-		cout << a->info << " "; 
+		printf("%d", a->info);
 		
 		pre_ordem(a->esq); 
 		
@@ -303,7 +340,7 @@ NoArv* ArvBB::em_ordem(NoArv* a)
 	{
 		em_ordem(a->esq);
 		
-		cout << a->info << " ";
+		printf("%d", a->info);
 		
 		em_ordem(a->dir);
 	}
@@ -319,7 +356,7 @@ NoArv* ArvBB::pos_ordem(NoArv* a)
 		
 		pos_ordem(a->dir);
 		
-		printf("%d", a->info)
+		printf("%d", a->info);
 	}
 }
 
@@ -361,11 +398,19 @@ NoArv* ArvBB::balance(NoArv* a)
 	
 	int diferenca = sae - sad;
 	
-	if(diferenca < -1 || diferenca > 1)
+	if(a !=NULL)
 	{
-	
- 
+		if(diferenca < -1 || diferenca > 1)
+		{
+			return 0;
+		}
+		else
+		{
+			return balance_aux(a->esq) * balance_aux(a->dir);
+		}
 	}
+	
+	return 1;
 }
 
 
@@ -373,11 +418,68 @@ NoArv* ArvBB::balance(NoArv* a)
 // 12 - Remove por copia
 NoArv* ArvBB::remove_copia(NoArv* a, int v)
 {
+	if(a == NULL)
+	{
+		return NULL;
+	}
+	
+	else if(a->info > v)
+	{
+		a->esq = remove_copia(a->esq, v);
+	}
+	
+	else if(a->info < v)
+	{
+		a->dir = remove_copia(a->dir, v);
+	}
+	
+	else
+	{
+		if(a->esq == NULL && a->dir == NULL)
+		{
+			free(a);
+			a = NULL;
+		}
+		
+		else if(a->dir == NULL)
+		{
+			NoArv* aux = a;
+			a = a->esq;
+			free(aux);
+		}
+		
+		else if(a->esq == NULL)
+		{
+			NoArv* aux = a;
+			a = a->dir;
+			free(aux);
+		}
+		
+		else
+		{
+			NoArv* folha = a->esq;
+			while(folha->dir != NULL)
+			{ 
+				folha = folha->dir;
+			}
+			
+			a->info = folha->info; 
+			folha->info = v;
+			a->esq = remove_copia(a->esq, v); 
+		}
+	}
+	return a;
+}
+
+// 13 - Remove por fusao
+NoArv* ArvBB::remove_fusao_aux(NoArv* a, int v)
+{
+	
 	
 }
 
 // 13 - Remove por fusao
-NoArv* ArvBB::remove_fusao(NoArv* a, int v)
+NoArv* ArvBB::remove_fusao(NoArv* a)
 {
 	
 }

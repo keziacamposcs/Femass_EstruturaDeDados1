@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.21"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Bplus",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Bplus::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Bplus-Debug-30f80c98b50c4f7ad5bc.json",
+					"name" : "Bplus",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/kezia/Documents/GitHub/Femass_EstruturaDeDados_C/Estrutura de Dados 2/08.06.22 - Ex1 - Árvores Especiais/BAsterisk/Bplus/cmake-build-debug",
+		"source" : "C:/Users/kezia/Documents/GitHub/Femass_EstruturaDeDados_C/Estrutura de Dados 2/08.06.22 - Ex1 - Árvores Especiais/BAsterisk/Bplus"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

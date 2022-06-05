@@ -1,0 +1,3 @@
+C:/Users/kezia/Documents/GitHub/Femass_EstruturaDeDados_C/Estrutura de Dados 2/08.06.22 - Ex1 - Árvores Especiais/BAsterisk/Bplus/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/kezia/Documents/GitHub/Femass_EstruturaDeDados_C/Estrutura de Dados 2/08.06.22 - Ex1 - Árvores Especiais/BAsterisk/Bplus/cmake-build-debug/CMakeFiles/Bplus.dir
+C:/Users/kezia/Documents/GitHub/Femass_EstruturaDeDados_C/Estrutura de Dados 2/08.06.22 - Ex1 - Árvores Especiais/BAsterisk/Bplus/cmake-build-debug/CMakeFiles/edit_cache.dir

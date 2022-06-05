@@ -1,17 +1,9 @@
-# Estrutura de Dados em C
 
-Nesse repositório, irá encontrar meus códigos feitos durante as aulas de Estrutura de Dados 1 com o professor Irineu do curso de Sistemas de Informação da FEMASS.
+# FEMASS - Estrutura de Dados 🎲
 
-Existem diversas estruturas de dados utilizadas na programação, as quatro principais são: Listas e suas variações (filas, pilhas, deques, listas circulares…), Árvores e suas variações (binárias, binárias de busca, não binárias…), Grafos, Tabelas Hash, que são largamente utilizadas na implementação de aplicações. 
+Repositório contendo programas em C e C++ feitos durante o curso de Sistemas de Informação na FEMASS na matéria Estrutura de Dados 1 e 2.
 
-Exemplificando:
+### O que são estruturas de dados?
+Em computação, normalmente utilizamos os dados de forma conjunta. A forma como estes dados serão agregados e organizados depende muito de como serão utilizados e processados, levando-se em consideração, por exemplo, a eficiência para buscas, o volume dos dados trabalhados, a complexidade da implementação e a forma como os dados se relacionam. Estas diversas formas de organização são as chamadas estruturas de dados.
 
-**Listas:** Processos executados em um sistema operacional (fila); chamadas de funções num interpretador de código (pilha); cartas em um jogo de baralho (variação de deque).
-
-**Árvores:** Aplicativos de pesquisa com entrada constante de dados (Árvores binárias); algoritmos de compactação de dados.
-
-**Grafos:** Redes sociais; algoritmos de sugestão de conexões; algoritmos de cálculo de relacionamentos (professores, disciplinas); aplicações voltadas para distribuição de malha elétrica.
-
-**Tabelas Hash:** Algoritmos de movimentação de personagens em jogos; bancos de dados; implementação de compiladores.
-
-Fonte: [Cod3r](https://blog.cod3r.com.br/estruturas-de-dados/)
+Fonte: [Alura](https://www.alura.com.br/artigos/estruturas-de-dados-introducao)
